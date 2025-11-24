@@ -1,8 +1,6 @@
 
 """
-Module for retrieving and caching eBird taxonomy data.
-This module provides functionality to fetch the eBird taxonomy from the eBird API
-and cache it locally to minimize API calls.
+
 """
 import json
 

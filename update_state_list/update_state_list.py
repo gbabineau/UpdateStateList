@@ -1,14 +1,12 @@
 """
-Main function for the photo_id application which presents a quiz of bird photos
-based on a definition of species, and time of year (to handle different)
-plumages.
+
 """
 
 import argparse
 import csv
 import logging
 import tomllib
-from difflib import get_close_matches
+import re
 
 from update_state_list import (
     get_ebird_api_key,
@@ -30,17 +28,35 @@ def update_state_list(common_names_file) -> None:
         matching_taxon = next((t for t in taxonomy if t.get('comName') == common_name), None)
 
         if matching_taxon:
-            bird['sciName'] = matching_taxon.get('sciName')
+            for copied_field in ['sciName', "speciesCode", "order", "familyComName", "taxonOrder"]:
+                bird[copied_field] = matching_taxon.get(copied_field)
             bird["speciesCode"] = matching_taxon.get('speciesCode')
-            updated_bird_data.append(bird)
         else:
-            logging.warning(
-                "No match for '%s'.",
-                common_name,
-            )
-            updated_bird_data.append(bird)
+            # Try to find a match using only the part before the first non-alphabetic character
+            base_name = re.split(r'[^a-zA-Z\s]', common_name)[0].strip()
+            matching_taxon = next((t for t in taxonomy if t.get('comName', '').startswith(base_name)), None)
 
-    # add map and chart and remove species code since it is not needed anymore
+            if matching_taxon:
+                logging.warning(
+                    "Partial match found for '%s' using base name '%s': matched to '%s'",
+                    common_name,
+                    base_name,
+                    matching_taxon.get('comName')
+                )
+                for copied_field in ['sciName', "speciesCode", "order", "familyComName", "taxonOrder"]:
+                    bird[copied_field] = matching_taxon.get(copied_field)
+                bird["taxonOrder"] = bird["taxonOrder"] +.1
+            else:
+                logging.error(
+                    "No match found for '%s' (base name: '%s').",
+                    common_name,
+                    base_name
+                )
+        updated_bird_data.append(bird)
+
+    # Sort updated_bird_data by taxonOrder
+    updated_bird_data.sort(key=lambda x: float(x.get('taxonOrder', 0)))
+    # add map and chart
     birds_with_map_and_chart = []
     for bird in updated_bird_data:
         if code := bird.get('speciesCode'):
@@ -50,14 +66,24 @@ def update_state_list(common_names_file) -> None:
             bird["Counts & Seasonality"] = (
                 f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes={code}&getLocations=states&states=US-VA&bYear=1900&eYear=Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA"
             )
-        if 'speciesCode' in bird:
-            del bird['speciesCode']
         birds_with_map_and_chart.append(bird)
 
     output_file = common_names_file.replace('.csv', '_updated.csv')
     with open(output_file, 'w', encoding='utf-8', newline='') as f:
         if updated_bird_data:
-            fieldnames = ["comName", "sciName", "State Status", "Spatial Distribution", "Counts & Seasonality"]
+            fieldnames = [
+                "comName",
+                "sciName",
+                "State Status",
+                "Spatial Distribution",
+                "Counts & Seasonality",
+                "speciesCode",
+                "sciName",
+                "speciesCode",
+                "order",
+                "familyComName",
+                "taxonOrder",
+            ]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(birds_with_map_and_chart)

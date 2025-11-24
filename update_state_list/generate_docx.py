@@ -1,0 +1,168 @@
+"""
+Main function for the photo_id application which presents a quiz of bird photos
+based on a definition of species, and time of year (to handle different)
+plumages.
+"""
+
+import argparse
+import csv
+import logging
+import tomllib
+from docx import Document, opc
+from docx.shared import Inches
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.shared import OxmlElement
+from docx.oxml.ns import qn
+
+def add_hyperlink(paragraph, url, text, color, underline):
+    # This gets access to the document.xml.rels file and gets a new relation id value
+    part = paragraph.part
+    r_id = part.relate_to(
+        url, opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True
+    )
+    # Create the w:hyperlink tag and add needed values
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(
+        qn("r:id"),
+        r_id,
+    )
+    # Create a w:r element
+    new_run = OxmlElement("w:r")
+    # Create a new w:rPr element
+    rPr = OxmlElement("w:rPr")
+    # Add color if it is given
+    if color is not None:
+        c = OxmlElement("w:color")
+        c.set(qn("w:val"), color)
+        rPr.append(c)
+    # Remove underlining if it is requested
+    if not underline:
+        u = OxmlElement("w:u")
+        u.set(qn("w:val"), "none")
+        rPr.append(u)
+    # Join all the xml elements together  add the required text to the w:r element
+    new_run.append(rPr)
+    new_run.text = text
+    hyperlink.append(new_run)
+    paragraph._p.append(hyperlink)
+    return hyperlink
+
+
+def generate_docx(official_list_file) -> None:
+    with open(official_list_file, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        birds_data = list(reader)
+    current_order = ""
+    current_family = ""
+    doc = Document()
+
+    # Add title
+    title = doc.add_heading(
+        "The Birds of Virginia and its Offshore Waters: The Official List", 0
+    )
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    # Create table with header row
+    table = doc.add_table(rows=1, cols=6)
+    table.style = "Light Grid Accent 1"
+
+    # Set header row
+    header_cells = table.rows[0].cells
+    headers = [
+        "#",
+        "Species",
+        "Scientific Name",
+        "State Status",
+        "Spatial Distribution",
+        "Counts & Seasonality",
+    ]
+    # Set column widths
+    table.columns[0].width = Inches(0.3)  # Narrow column for number
+    table.columns[1].width = Inches(1.1)  # Species
+    table.columns[2].width = Inches(1.1)  # Scientific Name
+    table.columns[3].width = Inches(1.1)  # State Status
+    table.columns[4].width = Inches(1.1)  # Spatial Distribution
+    table.columns[5].width = Inches(1.1)  # Counts & Seasonality
+    for i, header in enumerate(headers):
+        header_cells[i].text = header
+        header_cells[i].paragraphs[0].runs[0].bold = True
+
+    # Add data rows
+    for idx, bird in enumerate(birds_data, start=1):
+        if bird.get("order", "") != current_order:
+            current_order = bird.get("order", "")
+            current_family = ""
+            order_row = table.add_row().cells
+            order_cell = order_row[0].merge(order_row[5])
+            order_cell.text = f"Order: {current_order}"
+            order_cell.paragraphs[0].runs[0].bold = True
+            shading_elm = OxmlElement("w:shd")
+            shading_elm.set(qn("w:fill"), "D3D3D3")  # Light gray
+            order_cell._element.get_or_add_tcPr().append(shading_elm)
+
+        if bird.get("familyComName", "") != current_family:
+            current_family = bird.get("familyComName", "")
+            family_row = table.add_row().cells
+            family_cell = family_row[0].merge(family_row[5])
+            family_cell.text = f"Family: {current_family}"
+            family_cell.paragraphs[0].runs[0].bold = True
+            shading_elm = OxmlElement("w:shd")
+            shading_elm.set(qn("w:fill"), "ADD8E6")  # Light blue
+            family_cell._element.get_or_add_tcPr().append(shading_elm)
+        row_cells = table.add_row().cells
+        row_cells[0].text = str(idx)
+        row_cells[1].text = bird.get("comName", "")
+        row_cells[2].text = bird.get("sciName", "")
+        row_cells[3].text = bird.get("State Status", "")
+        # Add hyperlinks for Spatial Distribution and Counts & Seasonality
+        spatial_url = bird.get("Spatial Distribution", "")
+        if spatial_url:
+            add_hyperlink(row_cells[4].paragraphs[0], spatial_url, "Map", '0000FF', False)
+        else:
+            row_cells[4].text = ""
+
+        counts_url = bird.get("Counts & Seasonality", "")
+        if counts_url:
+            add_hyperlink(
+                row_cells[5].paragraphs[0], counts_url, "Chart", "0000FF", False
+            )
+        else:
+            row_cells[5].text = ""
+
+    # Save document
+    output_file = official_list_file.replace(".csv", ".docx")
+    doc.save(output_file)
+    logging.info("Document saved as %s", output_file)
+
+
+def main():
+    """Main function for the app."""
+    arg_parser = argparse.ArgumentParser(
+        prog="update-state-list", description="Update elements of a state list."
+    )
+    with open("pyproject.toml", "rb") as f:
+        pyproject_data = tomllib.load(f)
+    version = (
+        pyproject_data.get("tool", {}).get("poetry", {}).get("version", "0.0.0")
+    )
+    arg_parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {version}"
+    )
+    arg_parser.add_argument(
+        "--verbose", action="store_true", help="increase verbosity"
+    )
+    arg_parser.add_argument(
+        "--official_list_csv",
+        required=True,
+        help="csv of official list created by update_state_list",
+    )
+    args = arg_parser.parse_args()
+
+    if args.verbose:
+        logging.basicConfig(level=logging.INFO)
+
+    generate_docx(args.official_list_csv)
+
+
+if __name__ == "__main__":
+    main()

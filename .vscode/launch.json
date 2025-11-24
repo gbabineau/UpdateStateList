@@ -16,6 +16,19 @@
                 "--common_names_file",
                 "tests/resources/test.csv"
             ]
+        },
+        {
+            "name": "Python: Generate docx",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "update_state_list.generate_docx",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--verbose",
+                "--official_list_csv",
+                "tests/resources/test_updated.csv"
+            ]
         }
     ]
 }
