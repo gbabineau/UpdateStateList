@@ -64,6 +64,7 @@ def generate_docx(official_list_file) -> None:
 
     # Create table with header row
     table = doc.add_table(rows=1, cols=6)
+
     table.style = "Light Grid Accent 1"
 
     # Set header row
@@ -77,7 +78,7 @@ def generate_docx(official_list_file) -> None:
         "Counts & Seasonality",
     ]
     # Set column widths
-    table.columns[0].width = Inches(0.3)  # Narrow column for number
+    table.columns[0].width = Inches(0.5)  # Narrow column for number
     table.columns[1].width = Inches(1.1)  # Species
     table.columns[2].width = Inches(1.1)  # Scientific Name
     table.columns[3].width = Inches(1.1)  # State Status
@@ -88,7 +89,8 @@ def generate_docx(official_list_file) -> None:
         header_cells[i].paragraphs[0].runs[0].bold = True
 
     # Add data rows
-    for idx, bird in enumerate(birds_data, start=1):
+    index = 1
+    for bird in birds_data:
         if bird.get("order", "") != current_order:
             current_order = bird.get("order", "")
             current_family = ""
@@ -110,7 +112,9 @@ def generate_docx(official_list_file) -> None:
             shading_elm.set(qn("w:fill"), "ADD8E6")  # Light blue
             family_cell._element.get_or_add_tcPr().append(shading_elm)
         row_cells = table.add_row().cells
-        row_cells[0].text = str(idx)
+        if bird.get("subspecies", 'False').lower() == 'false':
+            row_cells[0].text = str(index)
+            index = index + 1
         row_cells[1].text = bird.get("comName", "")
         row_cells[2].text = bird.get("sciName", "")
         row_cells[3].text = bird.get("State Status", "")
