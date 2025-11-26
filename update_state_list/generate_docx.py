@@ -29,20 +29,20 @@ def add_hyperlink(paragraph, url, text, color, underline):
     )
     # Create a w:r element
     new_run = OxmlElement("w:r")
-    # Create a new w:rPr element
-    rPr = OxmlElement("w:rPr")
+    # Create a new w:rpr_element element
+    rpr_element = OxmlElement("w:rpr_element")
     # Add color if it is given
     if color is not None:
         c = OxmlElement("w:color")
         c.set(qn("w:val"), color)
-        rPr.append(c)
+        rpr_element.append(c)
     # Remove underlining if it is requested
     if not underline:
         u = OxmlElement("w:u")
         u.set(qn("w:val"), "none")
-        rPr.append(u)
+        rpr_element.append(u)
     # Join all the xml elements together  add the required text to the w:r element
-    new_run.append(rPr)
+    new_run.append(rpr_element)
     new_run.text = text
     hyperlink.append(new_run)
     paragraph._p.append(hyperlink)
