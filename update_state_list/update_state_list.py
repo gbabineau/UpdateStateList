@@ -90,17 +90,6 @@ def update_state_list(common_names_file) -> None:
 
     # Sort updated_bird_data by taxonOrder
     updated_bird_data.sort(key=lambda x: float(x.get("taxonOrder", 0)))
-    # add map and chart
-    birds_with_map_and_chart = []
-    for bird in updated_bird_data:
-        if code := bird.get("speciesCode"):
-            bird["Spatial Distribution"] = (
-                f"http://ebird.org/ebird/map/{code}?neg=true&env.minX=-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&states=US-VA"
-            )
-            bird["Counts & Seasonality"] = (
-                f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes={code}&getLocations=states&states=US-VA&bYear=1900&eYear=Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA"
-            )
-        birds_with_map_and_chart.append(bird)
 
     output_file = common_names_file.replace(".csv", "_updated.csv")
     with open(output_file, "w", encoding="utf-8", newline="") as f:
@@ -109,10 +98,7 @@ def update_state_list(common_names_file) -> None:
                 "comName",
                 "sciName",
                 "State Status",
-                "Spatial Distribution",
-                "Counts & Seasonality",
                 "speciesCode",
-                "sciName",
                 "order",
                 "familyComName",
                 "taxonOrder",
@@ -120,7 +106,7 @@ def update_state_list(common_names_file) -> None:
             ]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerows(birds_with_map_and_chart)
+            writer.writerows(updated_bird_data)
     logging.info("Updated data written to %s", output_file)
 
 

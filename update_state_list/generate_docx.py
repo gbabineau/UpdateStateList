@@ -14,6 +14,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.shared import OxmlElement
 from docx.oxml.ns import qn
 
+
 def add_hyperlink(paragraph, url, text, color, underline):
     # This gets access to the document.xml.rels file and gets a new relation id value
     part = paragraph.part
@@ -91,6 +92,7 @@ def generate_docx(official_list_file) -> None:
     # Add data rows
     index = 1
     for bird in birds_data:
+        species_code = bird.get("speciesCode", "")
         if bird.get("order", "") != current_order:
             current_order = bird.get("order", "")
             current_family = ""
@@ -112,26 +114,36 @@ def generate_docx(official_list_file) -> None:
             shading_elm.set(qn("w:fill"), "ADD8E6")  # Light blue
             family_cell._element.get_or_add_tcPr().append(shading_elm)
         row_cells = table.add_row().cells
-        if bird.get("subspecies", 'False').lower() == 'false':
+        if bird.get("subspecies", "False").lower() == "false":
             row_cells[0].text = str(index)
             index = index + 1
-        row_cells[1].text = bird.get("comName", "")
+        # add hyperlink for common name that provides species account
+        add_hyperlink(
+            row_cells[1].paragraphs[0],
+            f"https://ebird.org/species/{species_code}/US-VA",
+            bird.get("comName"),
+            "0000FF",
+            False,
+        )
         row_cells[2].text = bird.get("sciName", "")
         row_cells[3].text = bird.get("State Status", "")
         # Add hyperlinks for Spatial Distribution and Counts & Seasonality
-        spatial_url = bird.get("Spatial Distribution", "")
-        if spatial_url:
-            add_hyperlink(row_cells[4].paragraphs[0], spatial_url, "Map", '0000FF', False)
-        else:
-            row_cells[4].text = ""
+        add_hyperlink(
+            row_cells[4].paragraphs[0],
+            f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX=-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&states=US-VA",
+            "Map",
+            "0000FF",
+            False,
+        )
 
-        counts_url = bird.get("Counts & Seasonality", "")
-        if counts_url:
-            add_hyperlink(
-                row_cells[5].paragraphs[0], counts_url, "Chart", "0000FF", False
-            )
-        else:
-            row_cells[5].text = ""
+        add_hyperlink(
+            row_cells[5].paragraphs[0],
+            f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes={species_code}&getLocations=states&states=US-VA&bYear=1900&eYear=Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
+            "Chart",
+            "0000FF",
+            False,
+        )
+
 
     # Save document
     output_file = official_list_file.replace(".csv", ".docx")
