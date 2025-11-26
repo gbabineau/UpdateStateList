@@ -6,7 +6,10 @@ import pytest
 from docx import Document
 from docx.oxml import CT_Hyperlink
 
-from update_state_list.generate_docx import add_hyperlink, generate_docx, main
+from update_state_list.generate_docx import (add_hyperlink,
+                                             generate_docx,
+                                             main,
+                                             _add_category_row)
 
 
 class TestAddHyperlink:
@@ -162,3 +165,53 @@ class TestMain:
         """Test main function with verbose flag."""
         main()
         mock_generate.assert_called_once_with('test.csv')
+class TestAddCategoryRow:
+    """Tests for _add_category_row function."""
+
+    def test_add_category_row_creates_merged_cell(self):
+        """Test that _add_category_row creates a merged cell."""
+
+        doc = Document()
+        table = doc.add_table(rows=1, cols=6)
+
+        _add_category_row(table, "Order: Passeriformes", "D3D3D3")
+
+        # Should have 2 rows now (header + category row)
+        assert len(table.rows) == 2
+
+    def test_add_category_row_sets_text(self):
+        """Test that _add_category_row sets the correct text."""
+
+        doc = Document()
+        table = doc.add_table(rows=1, cols=6)
+
+        _add_category_row(table, "Family: Kinglets", "ADD8E6")
+
+        merged_cell = table.rows[1].cells[0]
+        assert merged_cell.text == "Family: Kinglets"
+
+    def test_add_category_row_makes_text_bold(self):
+        """Test that _add_category_row makes text bold."""
+
+        doc = Document()
+        table = doc.add_table(rows=1, cols=6)
+
+        _add_category_row(table, "Order: Test", "D3D3D3")
+
+        merged_cell = table.rows[1].cells[0]
+        assert merged_cell.paragraphs[0].runs[0].bold is True
+
+    def test_add_category_row_with_different_colors(self):
+        """Test that _add_category_row works with different colors."""
+
+        doc = Document()
+        table = doc.add_table(rows=1, cols=6)
+
+        # Test with order color
+        _add_category_row(table, "Order: Test", "D3D3D3")
+        assert len(table.rows) == 2
+
+        # Test with family color
+        _add_category_row(table, "Family: Test", "ADD8E6")
+        assert len(table.rows) == 3
+

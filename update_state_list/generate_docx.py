@@ -29,158 +29,131 @@ def add_hyperlink(paragraph, url, text, color, underline):
     Returns:
         OxmlElement: The hyperlink XML element that was created and added to
         the paragraph.
-
-    Notes:
-        This function uses python-docx's low-level XML manipulation to create
-        hyperlinks with custom styling options that aren't available through the
-        high-level API.
     """
     part = paragraph.part
     r_id = part.relate_to(
         url, opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True
     )
+
     hyperlink = OxmlElement("w:hyperlink")
-    hyperlink.set(
-        qn("r:id"),
-        r_id,
-    )
+    hyperlink.set(qn("r:id"), r_id)
+
     new_run = OxmlElement("w:r")
-    rpr_element = OxmlElement("w:rpr_element")
-    if color is not None:
+    rpr = OxmlElement("w:rPr")
+
+    if color:
         c = OxmlElement("w:color")
         c.set(qn("w:val"), color)
-        rpr_element.append(c)
+        rpr.append(c)
+
     if not underline:
         u = OxmlElement("w:u")
         u.set(qn("w:val"), "none")
-        rpr_element.append(u)
-    new_run.append(rpr_element)
+        rpr.append(u)
+
+    new_run.append(rpr)
     new_run.text = text
     hyperlink.append(new_run)
     # pylint: disable=W0212
     paragraph._p.append(hyperlink)
+
     return hyperlink
 
 
 def generate_docx(official_list_file) -> None:
     """
     Generate a formatted Word document from a CSV file containing official bird
-    species data. This function reads bird species data from a CSV file and
-    creates a structured Word document with a table containing species
-    information organized by taxonomic order and family. The document includes
-    hyperlinks to eBird species accounts, distribution maps, and seasonal charts.
-    Args:
-        official_list_file (str): Path to the CSV file containing bird species data. The CSV
-            should include columns: speciesCode, order, familyComName, comName, sciName,
-            State Status, and subspecies.
-    Returns:
-        None: The function saves the generated document to disk with a .docx extension.
-    """
-    with open(official_list_file, "r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        birds_data = list(reader)
-    current_order = ""
-    current_family = ""
-    doc = Document()
+    species data.
 
-    # Add title
+    Args:
+        official_list_file: Path to the CSV file containing bird species data.
+    """
+    # Read CSV data
+    with open(official_list_file, "r", encoding="utf-8") as f:
+        birds_data = list(csv.DictReader(f))
+
+    # Initialize document
+    doc = Document()
     title = doc.add_heading(
         "The Birds of Virginia and its Offshore Waters: The Official List", 0
     )
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-    # Create table with header row
+    # Create table
     table = doc.add_table(rows=1, cols=6)
-
     table.style = "Light Grid Accent 1"
 
-    # Set header row
-    header_cells = table.rows[0].cells
-    headers = [
-        "#",
-        "Species",
-        "Scientific Name",
-        "State Status",
-        "Spatial Distribution",
-        "Counts & Seasonality",
-    ]
-    # Set column widths
-    table.columns[0].width = Inches(0.5)  # Narrow column for number
-    table.columns[1].width = Inches(1.1)  # Species
-    table.columns[2].width = Inches(1.1)  # Scientific Name
-    table.columns[3].width = Inches(1.1)  # State Status
-    table.columns[4].width = Inches(1.1)  # Spatial Distribution
-    table.columns[5].width = Inches(1.1)  # Counts & Seasonality
-    for i, header in enumerate(headers):
-        header_cells[i].text = header
-        header_cells[i].paragraphs[0].runs[0].bold = True
+    # Set headers
+    headers = ["#", "Species", "Scientific Name", "State Status",
+                "Spatial Distribution", "Counts & Seasonality"]
+    widths = [0.5, 1.1, 1.1, 1.1, 1.1, 1.1]
+
+    for i, (header, width) in enumerate(zip(headers, widths)):
+        table.columns[i].width = Inches(width)
+        cell = table.rows[0].cells[i]
+        cell.text = header
+        cell.paragraphs[0].runs[0].bold = True
 
     # Add data rows
+    current_order = current_family = ""
     index = 1
-    for bird in birds_data:
-        species_code = bird.get("speciesCode", "")
-        if bird.get("order", "") != current_order:
-            current_order = bird.get("order", "")
-            current_family = ""
-            order_row = table.add_row().cells
-            order_cell = order_row[0].merge(order_row[5])
-            order_cell.text = f"Order: {current_order}"
-            order_cell.paragraphs[0].runs[0].bold = True
-            shading_elm = OxmlElement("w:shd")
-            shading_elm.set(qn("w:fill"), "D3D3D3")  # Light gray
-            # pylint: disable=W0212
-            order_cell._element.get_or_add_tcPr().append(shading_elm)
 
+    for bird in birds_data:
+        # Add order row if changed
+        if bird.get("order", "") != current_order:
+            current_order = bird["order"]
+            current_family = ""
+            _add_category_row(table, f"Order: {current_order}", "D3D3D3")
+
+        # Add family row if changed
         if bird.get("familyComName", "") != current_family:
-            current_family = bird.get("familyComName", "")
-            family_row = table.add_row().cells
-            family_cell = family_row[0].merge(family_row[5])
-            family_cell.text = f"Family: {current_family}"
-            family_cell.paragraphs[0].runs[0].bold = True
-            shading_elm = OxmlElement("w:shd")
-            shading_elm.set(qn("w:fill"), "ADD8E6")  # Light blue
-            # pylint: disable=W0212
-            family_cell._element.get_or_add_tcPr().append(shading_elm)
+            current_family = bird["familyComName"]
+            _add_category_row(table, f"Family: {current_family}", "ADD8E6")
+
+        # Add species row
         row_cells = table.add_row().cells
+        species_code = bird.get("speciesCode", "")
+
         if bird.get("subspecies", "False").lower() == "false":
             row_cells[0].text = str(index)
-            index = index + 1
-        # add hyperlink for common name that provides species account
-        add_hyperlink(
-            row_cells[1].paragraphs[0],
-            f"https://ebird.org/species/{species_code}/US-VA",
-            bird.get("comName"),
-            "0000FF",
-            False,
-        )
+            index += 1
+
+        add_hyperlink(row_cells[1].paragraphs[0],
+                     f"https://ebird.org/species/{species_code}/US-VA",
+                     bird.get("comName"), "0000FF", False)
+
         row_cells[2].text = bird.get("sciName", "")
         row_cells[3].text = bird.get("State Status", "")
-        # Add hyperlinks for Spatial Distribution and Counts & Seasonality
-        add_hyperlink(
-            row_cells[4].paragraphs[0],
-            f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX="
-            "-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&"
-            "gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&"
-            "states=US-VA",
-            "Map",
-            "0000FF",
-            False,
-        )
 
-        add_hyperlink(
-            row_cells[5].paragraphs[0],
-            "http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes="
-            f"{species_code}&getLocations=states&states=US-VA&bYear=1900&eYear="
-            "Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
-            "Chart",
-            "0000FF",
-            False,
-        )
+        add_hyperlink(row_cells[4].paragraphs[0],
+                     f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX="
+                     "-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&"
+                     "gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&"
+                     "states=US-VA",
+                     "Map", "0000FF", False)
+
+        add_hyperlink(row_cells[5].paragraphs[0],
+                     f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes="
+                     f"{species_code}&getLocations=states&states=US-VA&bYear=1900&eYear="
+                     "Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
+                     "Chart", "0000FF", False)
 
     # Save document
     output_file = official_list_file.replace(".csv", ".docx")
     doc.save(output_file)
     logging.info("Document saved as %s", output_file)
+
+
+def _add_category_row(table, text, color):
+    """Add a category row (order/family) to the table."""
+    row_cells = table.add_row().cells
+    merged_cell = row_cells[0].merge(row_cells[5])
+    merged_cell.text = text
+    merged_cell.paragraphs[0].runs[0].bold = True
+    shading_elm = OxmlElement("w:shd")
+    shading_elm.set(qn("w:fill"), color)
+    # pylint: disable=W0212
+    merged_cell._element.get_or_add_tcPr().append(shading_elm)
 
 
 def main():
