@@ -214,4 +214,3 @@ class TestAddCategoryRow:
         # Test with family color
         _add_category_row(table, "Family: Test", "ADD8E6")
         assert len(table.rows) == 3
-
