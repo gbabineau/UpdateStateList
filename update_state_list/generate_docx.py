@@ -1,6 +1,5 @@
 """
-Main function for the photo_id application which presents a quiz of bird photos
-based on a definition of species, and time of year (to handle different)
+Main function for the generate_docx application
 plumages.
 """
 
@@ -8,11 +7,12 @@ import argparse
 import csv
 import logging
 import tomllib
+
 from docx import Document, opc
-from docx.shared import Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.oxml.shared import OxmlElement
 from docx.oxml.ns import qn
+from docx.oxml.shared import OxmlElement
+from docx.shared import Inches
 
 
 def add_hyperlink(paragraph, url, text, color, underline):

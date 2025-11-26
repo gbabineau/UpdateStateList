@@ -1,4 +1,11 @@
-""" """
+"""
+This module is used to update a state list from a input list (in csv format)
+containing the common name and state status. It checks that against the
+eBird taxonomy and collects information from eBird for producing information
+for the state list including order and family. This is output as a csv which
+can in turn be used for input by the generate_docx utility to create
+a document.
+"""
 
 import argparse
 import csv
@@ -10,6 +17,7 @@ from update_state_list import (
     get_ebird_api_key,
     get_taxonomy,
 )
+
 
 def create_output_file(updated_bird_data, common_names_file) -> None:
     """
@@ -49,6 +57,7 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
             writer.writerows(updated_bird_data)
     logging.info("Updated data written to %s", output_file)
 
+
 def get_taxonomy_of_interest(api_key) -> list:
     """
     Retrieves and filters the eBird taxonomy to include only birds of interest.
@@ -73,6 +82,7 @@ def get_taxonomy_of_interest(api_key) -> list:
     ]
     return taxonomy
 
+
 def read_input_file(common_names_file) -> list:
     """
     Read bird data from a CSV file and return it as a list of dictionaries.
@@ -95,8 +105,26 @@ def read_input_file(common_names_file) -> list:
         birds_data = list(reader)
     return birds_data
 
-def get_matching_taxon(
-            common_name, taxonomy) -> tuple[list, bool]:
+
+def get_matching_taxon(common_name, taxonomy) -> tuple[list, bool]:
+    """
+    Find a matching taxon entry from the taxonomy list based on common name.
+    This function attempts to find a taxon in the taxonomy list by matching the
+    common name. If an exact match is not found, it tries to match using a base
+    name (the part before thr first non-alphabetic character, excluding spaces
+    and hyphens).
+    Args:
+        common_name (str): The common name of the species to search for.
+        taxonomy (list): A list of dictionaries containing taxonomic information, where each
+                            dictionary should have at least a "comName" key.
+    Returns:
+        tuple[list, bool]: A tuple containing:
+            - matching_taxon (dict or None): The matching taxonomy dictionary.
+            - non_issf_subspecies (bool): This is to handle subspecies which
+            are in the state record but not in the eBird taxonomy.
+    Raises:
+        None: Logs an error message if no matching taxon is found.
+    """
     matching_taxon = next(
         (t for t in taxonomy if t.get("comName") == common_name), None
     )
@@ -107,11 +135,7 @@ def get_matching_taxon(
         # Try to find a match using only the part before the first non-alphabetic character
         base_name = re.split(r"[^a-zA-Z\s\-]", common_name)[0].strip()
         matching_taxon = next(
-            (
-                t
-                for t in taxonomy
-                if t.get("comName", "").startswith(base_name)
-            ),
+            (t for t in taxonomy if t.get("comName", "").startswith(base_name)),
             None,
         )
         non_issf_subspecies = True
@@ -123,7 +147,23 @@ def get_matching_taxon(
             )
     return matching_taxon, non_issf_subspecies
 
+
 def update_state_list(common_names_file) -> None:
+    """
+    Update bird state list data with taxonomy information from eBird API.
+    This function reads a file containing bird common names, retrieves the
+    corresponding taxonomy data from the eBird API, and updates each bird record
+    with scientific names, species codes, taxonomic order, and family
+    information. It handles both regular species and non-ISSF  subspecies by
+    adjusting their taxonomic order values.
+    Args:
+        common_names_file: Path to the input file with bird common names data.
+    Returns:
+        None. The function writes the updated bird data to an output file.
+    Notes:
+        - Non-ISSF subspecies are assigned incremental taxon order offsets 
+          to maintain proper ordering relative to their parent species.
+    """
     api_key = get_ebird_api_key.get_ebird_api_key()
     taxonomy = get_taxonomy_of_interest(api_key)
     birds_data = read_input_file(common_names_file)
@@ -131,8 +171,7 @@ def update_state_list(common_names_file) -> None:
     non_issf_subspecies_order_keeper = 0
     for bird in birds_data:
         matching_taxon, non_issf_subspecies = get_matching_taxon(
-            bird.get("comName", ""),
-            taxonomy=taxonomy
+            bird.get("comName", ""), taxonomy=taxonomy
         )
         for copied_field in [
             "sciName",
@@ -143,14 +182,16 @@ def update_state_list(common_names_file) -> None:
         ]:
             bird[copied_field] = matching_taxon.get(copied_field)
         if non_issf_subspecies:
-            non_issf_subspecies_order_keeper = non_issf_subspecies_order_keeper + .01
-            bird["taxonOrder"] = bird["taxonOrder"] + non_issf_subspecies_order_keeper
+            non_issf_subspecies_order_keeper = (
+                non_issf_subspecies_order_keeper + 0.01
+            )
+            bird["taxonOrder"] = (
+                bird["taxonOrder"] + non_issf_subspecies_order_keeper
+            )
             bird["subspecies"] = True
         else:
             non_issf_subspecies_order_keeper = 0
             bird["subspecies"] = matching_taxon.get("category") == "issf"
-
-
 
         updated_bird_data.append(bird)
 
