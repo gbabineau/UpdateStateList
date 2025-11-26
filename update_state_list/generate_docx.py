@@ -16,40 +16,66 @@ from docx.oxml.ns import qn
 
 
 def add_hyperlink(paragraph, url, text, color, underline):
-    # This gets access to the document.xml.rels file and gets a new relation id value
+    """
+    Add a hyperlink to a paragraph in a Word document.
+
+    Args:
+        paragraph: The paragraph object to add the hyperlink to.
+        url (str): The URL that the hyperlink should point to.
+        text (str): The display text for the hyperlink.
+        color (str, optional): The color of the hyperlink text
+        underline (bool): Whether the hyperlink should be underlined.
+
+    Returns:
+        OxmlElement: The hyperlink XML element that was created and added to
+        the paragraph.
+
+    Notes:
+        This function uses python-docx's low-level XML manipulation to create
+        hyperlinks with custom styling options that aren't available through the
+        high-level API.
+    """
     part = paragraph.part
     r_id = part.relate_to(
         url, opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True
     )
-    # Create the w:hyperlink tag and add needed values
     hyperlink = OxmlElement("w:hyperlink")
     hyperlink.set(
         qn("r:id"),
         r_id,
     )
-    # Create a w:r element
     new_run = OxmlElement("w:r")
-    # Create a new w:rpr_element element
     rpr_element = OxmlElement("w:rpr_element")
-    # Add color if it is given
     if color is not None:
         c = OxmlElement("w:color")
         c.set(qn("w:val"), color)
         rpr_element.append(c)
-    # Remove underlining if it is requested
     if not underline:
         u = OxmlElement("w:u")
         u.set(qn("w:val"), "none")
         rpr_element.append(u)
-    # Join all the xml elements together  add the required text to the w:r element
     new_run.append(rpr_element)
     new_run.text = text
     hyperlink.append(new_run)
+    # pylint: disable=W0212
     paragraph._p.append(hyperlink)
     return hyperlink
 
 
 def generate_docx(official_list_file) -> None:
+    """
+    Generate a formatted Word document from a CSV file containing official bird
+    species data. This function reads bird species data from a CSV file and
+    creates a structured Word document with a table containing species
+    information organized by taxonomic order and family. The document includes
+    hyperlinks to eBird species accounts, distribution maps, and seasonal charts.
+    Args:
+        official_list_file (str): Path to the CSV file containing bird species data. The CSV
+            should include columns: speciesCode, order, familyComName, comName, sciName,
+            State Status, and subspecies.
+    Returns:
+        None: The function saves the generated document to disk with a .docx extension.
+    """
     with open(official_list_file, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         birds_data = list(reader)
@@ -102,6 +128,7 @@ def generate_docx(official_list_file) -> None:
             order_cell.paragraphs[0].runs[0].bold = True
             shading_elm = OxmlElement("w:shd")
             shading_elm.set(qn("w:fill"), "D3D3D3")  # Light gray
+            # pylint: disable=W0212
             order_cell._element.get_or_add_tcPr().append(shading_elm)
 
         if bird.get("familyComName", "") != current_family:
@@ -112,6 +139,7 @@ def generate_docx(official_list_file) -> None:
             family_cell.paragraphs[0].runs[0].bold = True
             shading_elm = OxmlElement("w:shd")
             shading_elm.set(qn("w:fill"), "ADD8E6")  # Light blue
+            # pylint: disable=W0212
             family_cell._element.get_or_add_tcPr().append(shading_elm)
         row_cells = table.add_row().cells
         if bird.get("subspecies", "False").lower() == "false":
@@ -130,7 +158,10 @@ def generate_docx(official_list_file) -> None:
         # Add hyperlinks for Spatial Distribution and Counts & Seasonality
         add_hyperlink(
             row_cells[4].paragraphs[0],
-            f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX=-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&states=US-VA",
+            f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX="
+            "-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&"
+            "gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&"
+            "states=US-VA",
             "Map",
             "0000FF",
             False,
@@ -138,12 +169,13 @@ def generate_docx(official_list_file) -> None:
 
         add_hyperlink(
             row_cells[5].paragraphs[0],
-            f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes={species_code}&getLocations=states&states=US-VA&bYear=1900&eYear=Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
+            "http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes="
+            f"{species_code}&getLocations=states&states=US-VA&bYear=1900&eYear="
+            "Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
             "Chart",
             "0000FF",
             False,
         )
-
 
     # Save document
     output_file = official_list_file.replace(".csv", ".docx")

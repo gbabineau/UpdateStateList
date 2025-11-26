@@ -12,6 +12,22 @@ from update_state_list import (
 )
 
 def create_output_file(updated_bird_data, common_names_file) -> None:
+    """
+    Create an output CSV file with updated bird data sorted by taxonomic order.
+    This function takes the updated bird data and writes it to a new CSV file
+    with a standardized set of fields. The output filename is derived from the
+    input common names file by appending '_updated' before the file extension.
+    Args:
+        updated_bird_data (list[dict]): A list of dictionaries with bird data.
+            Each dictionary should contain keys like 'comName', 'sciName',
+            'State Status', 'speciesCode', 'order', 'familyComName',
+            'taxonOrder', and 'subspecies'.
+        common_names_file (str): The path to the original common names CSV file.
+            Used to determine the output filename.
+    Returns:
+        None: This function does not return a value but writes data to a file
+            and logs the operation.
+    """
     # Sort updated_bird_data by taxonOrder
     updated_bird_data.sort(key=lambda x: float(x.get("taxonOrder", 0)))
 
@@ -34,6 +50,20 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
     logging.info("Updated data written to %s", output_file)
 
 def get_taxonomy_of_interest(api_key) -> list:
+    """
+    Retrieves and filters the eBird taxonomy to include only birds of interest.
+
+    This function fetches the complete eBird taxonomy using the provided API
+    key, then filters out hybrid and domestic bird species, returning only wild
+    species that are relevant for state bird lists.
+
+    Args:
+        api_key (str): A valid eBird API key for authentication.
+
+    Returns:
+        list: A list of dictionaries containing taxonomy information for each
+            species.
+    """
     taxonomy = get_taxonomy.ebird_taxonomy(api_key)
     # remove hybrids and domestic birds from the taxonomy as they are not in the state list
     taxonomy = [
@@ -44,6 +74,21 @@ def get_taxonomy_of_interest(api_key) -> list:
     return taxonomy
 
 def read_input_file(common_names_file) -> list:
+    """
+    Read bird data from a CSV file and return it as a list of dictionaries.
+
+    Args:
+        common_names_file (str): Path to the CSV file with state records
+
+    Returns:
+        list: A list of dictionaries where each dictionary represents a row from
+            the CSV file, with column headers as keys and cell values as values.
+
+    Raises:
+        FileNotFoundError: If the specified file does not exist.
+        PermissionError: If the file cannot be accessed due to permissions.
+        UnicodeDecodeError: If the file cannot be decoded with UTF-8 encoding.
+    """
     birds_data = []
     with open(common_names_file, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
