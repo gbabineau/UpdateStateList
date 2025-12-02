@@ -3,13 +3,12 @@ Tests  update_state_list/get_taxonomy.py
 """
 
 import json
-import unittest
-from unittest import mock
+from unittest import TestCase, mock
 
 import update_state_list.get_taxonomy
 
 
-class TestGetTaxonomy(unittest.TestCase):
+class TestGetTaxonomy(TestCase):
     def test_ebird_taxonomy(self):
         """tests the function with that name"""
         test_json = {"comName": "value"}
