@@ -1,0 +1,28 @@
+{
+    "cSpell.words": [
+        "amerob",
+        "birda",
+        "birdb",
+        "coronata",
+        "Corthylio",
+        "delenv",
+        "EBIRDAPIKEY",
+        "FFFFE",
+        "gockin",
+        "issf",
+        "migratorius",
+        "oxml",
+        "Passeriformes",
+        "rucroc",
+        "rumped",
+        "satrapa",
+        "Setophaga",
+        "Turdus",
+        "yerwar"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
