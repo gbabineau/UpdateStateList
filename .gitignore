@@ -205,5 +205,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-tests/resources/test_updated.docx
-tests/resources/test_updated.csv
+*_updated.docx
+*_updated.csv
+data/virginiaStateListDec2025.docx

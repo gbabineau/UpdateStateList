@@ -11,9 +11,7 @@ python-docx = "^1.2.0"
 requests = "^2.31.0"
 ebird-api = "^3.0.6"
 
-[tool.poetry.dev-dependencies]
-
-[tool.poetry.group.dev.dependencies]
+[poetry.group.dev.dependenciess]
 flake8 = "^6.1.0"
 coverage = "^7.3.1"
 pytest = "^9.0.1"

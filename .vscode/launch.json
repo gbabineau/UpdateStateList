@@ -29,6 +29,32 @@
                 "--official_list_csv",
                 "tests/resources/test_updated.csv"
             ]
-        }
+        },
+        {
+            "name": "Python: Update Virginia List",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "update_state_list.update_state_list",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--verbose",
+                "--common_names_file",
+                "data/virginiaStateListDec2025.csv"
+            ]
+        },
+        {
+            "name": "Python: Generate Virginia docx",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "update_state_list.generate_docx",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--verbose",
+                "--official_list_csv",
+                "data/virginiaStateListDec2025_updated.csv"
+            ]
+        },
     ]
 }

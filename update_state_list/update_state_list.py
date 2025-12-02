@@ -37,7 +37,14 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
             and logs the operation.
     """
     # Sort updated_bird_data by taxonOrder
-    updated_bird_data.sort(key=lambda x: float(x.get("taxonOrder", 0)))
+    # Sort by taxonOrder, but place birds with State Status "(4)" at the end
+    updated_bird_data.sort(
+        key=lambda x: (
+            x.get("State Status") == "(4)",
+            float(x.get("taxonOrder", 0)),
+        )
+    )
+    # updated_bird_data.sort(key=lambda x: float(x.get("taxonOrder", 0)))
 
     output_file = common_names_file.replace(".csv", "_updated.csv")
     with open(output_file, "w", encoding="utf-8", newline="") as f:
@@ -51,6 +58,7 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
                 "familyComName",
                 "taxonOrder",
                 "subspecies",
+                "Sort as",
             ]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
@@ -161,7 +169,7 @@ def update_state_list(common_names_file) -> None:
     Returns:
         None. The function writes the updated bird data to an output file.
     Notes:
-        - Non-ISSF subspecies are assigned incremental taxon order offsets 
+        - Non-ISSF subspecies are assigned incremental taxon order offsets
           to maintain proper ordering relative to their parent species.
     """
     api_key = get_ebird_api_key.get_ebird_api_key()
@@ -170,30 +178,41 @@ def update_state_list(common_names_file) -> None:
     updated_bird_data = []
     non_issf_subspecies_order_keeper = 0
     for bird in birds_data:
-        matching_taxon, non_issf_subspecies = get_matching_taxon(
-            bird.get("comName", ""), taxonomy=taxonomy
-        )
-        for copied_field in [
-            "sciName",
-            "speciesCode",
-            "order",
-            "familyComName",
-            "taxonOrder",
-        ]:
-            bird[copied_field] = matching_taxon.get(copied_field)
-        if non_issf_subspecies:
-            non_issf_subspecies_order_keeper = (
-                non_issf_subspecies_order_keeper + 0.01
-            )
-            bird["taxonOrder"] = (
-                bird["taxonOrder"] + non_issf_subspecies_order_keeper
-            )
-            bird["subspecies"] = True
+        if sort_as := bird.get("Sort as"):
+            bird_for_search = sort_as
         else:
-            non_issf_subspecies_order_keeper = 0
-            bird["subspecies"] = matching_taxon.get("category") == "issf"
+            bird_for_search = bird.get("comName", "")
 
-        updated_bird_data.append(bird)
+        matching_taxon, non_issf_subspecies = get_matching_taxon(
+            bird_for_search, taxonomy=taxonomy
+        )
+        if matching_taxon is None:
+            logging.error("No matching taxon for %s", bird.get("comName"))
+        else:
+            non_issf_subspecies = non_issf_subspecies or "(" in bird.get(
+                "comName"
+            )
+            for copied_field in [
+                "sciName",
+                "speciesCode",
+                "order",
+                "familyComName",
+                "taxonOrder",
+            ]:
+                bird[copied_field] = matching_taxon.get(copied_field)
+            if non_issf_subspecies:
+                non_issf_subspecies_order_keeper = (
+                    non_issf_subspecies_order_keeper + 0.01
+                )
+                bird["taxonOrder"] = (
+                    bird["taxonOrder"] + non_issf_subspecies_order_keeper
+                )
+                bird["subspecies"] = True
+            else:
+                non_issf_subspecies_order_keeper = 0
+                bird["subspecies"] = matching_taxon.get("category") == "issf"
+
+            updated_bird_data.append(bird)
 
     create_output_file(updated_bird_data, common_names_file)
 

@@ -84,8 +84,14 @@ def generate_docx(official_list_file) -> None:
     table.style = "Light Grid Accent 1"
 
     # Set headers
-    headers = ["#", "Species", "Scientific Name", "State Status",
-                "Spatial Distribution", "Counts & Seasonality"]
+    headers = [
+        "#",
+        "Species",
+        "Scientific Name",
+        "State Status",
+        "Spatial Distribution",
+        "Counts & Seasonality",
+    ]
     widths = [0.5, 1.1, 1.1, 1.1, 1.1, 1.1]
 
     for i, (header, width) in enumerate(zip(headers, widths)):
@@ -97,8 +103,17 @@ def generate_docx(official_list_file) -> None:
     # Add data rows
     current_order = current_family = ""
     index = 1
-
+    historically_occurring_section = False
     for bird in birds_data:
+        # Add historical species row if first occurrence
+        state_status = bird.get("State Status", "")
+        if state_status == "(4)" and not historically_occurring_section:
+            _add_category_row(
+                table,
+                "Species Believed to Have Occurred Historically",
+                "FFFFE0",
+            )
+            historically_occurring_section = True
         # Add order row if changed
         if bird.get("order", "") != current_order:
             current_order = bird["order"]
@@ -114,29 +129,44 @@ def generate_docx(official_list_file) -> None:
         row_cells = table.add_row().cells
         species_code = bird.get("speciesCode", "")
 
-        if bird.get("subspecies", "False").lower() == "false":
+        if (
+            bird.get("subspecies", "False").lower() == "false"
+            and not historically_occurring_section
+        ):
             row_cells[0].text = str(index)
             index += 1
 
-        add_hyperlink(row_cells[1].paragraphs[0],
-                     f"https://ebird.org/species/{species_code}/US-VA",
-                     bird.get("comName"), "0000FF", False)
+        add_hyperlink(
+            row_cells[1].paragraphs[0],
+            f"https://ebird.org/species/{species_code}/US-VA",
+            bird.get("comName"),
+            "0000FF",
+            False,
+        )
 
         row_cells[2].text = bird.get("sciName", "")
-        row_cells[3].text = bird.get("State Status", "")
+        row_cells[3].text = state_status
 
-        add_hyperlink(row_cells[4].paragraphs[0],
-                     f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX="
-                     "-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&"
-                     "gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&"
-                     "states=US-VA",
-                     "Map", "0000FF", False)
+        add_hyperlink(
+            row_cells[4].paragraphs[0],
+            f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX="
+            "-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&"
+            "gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&"
+            "states=US-VA",
+            "Map",
+            "0000FF",
+            False,
+        )
 
-        add_hyperlink(row_cells[5].paragraphs[0],
-                     f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes="
-                     f"{species_code}&getLocations=states&states=US-VA&bYear=1900&eYear="
-                     "Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
-                     "Chart", "0000FF", False)
+        add_hyperlink(
+            row_cells[5].paragraphs[0],
+            f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes="
+            f"{species_code}&getLocations=states&states=US-VA&bYear=1900&eYear="
+            "Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
+            "Chart",
+            "0000FF",
+            False,
+        )
 
     # Save document
     output_file = official_list_file.replace(".csv", ".docx")
