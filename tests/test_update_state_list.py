@@ -2,6 +2,7 @@
 
 import csv
 import logging
+import math
 from unittest.mock import patch
 
 import pytest
@@ -355,7 +356,7 @@ class TestUpdateStateList:
 
         updated_data = mock_create.call_args[0][0]
         assert updated_data[0]["subspecies"] is True
-        assert updated_data[0]["taxonOrder"] == 200.01
+        assert math.isclose(updated_data[0]["taxonOrder"], 200.01)
 
     @patch("update_state_list.update_state_list.create_output_file")
     @patch("update_state_list.update_state_list.read_input_file")
@@ -391,8 +392,8 @@ class TestUpdateStateList:
         update_state_list("test.csv")
 
         updated_data = mock_create.call_args[0][0]
-        assert updated_data[0]["taxonOrder"] == 200.01
-        assert updated_data[1]["taxonOrder"] == 200.02
+        assert math.isclose(updated_data[0]["taxonOrder"], 200.01)
+        assert math.isclose(updated_data[1]["taxonOrder"], 200.02)
 
     @patch("update_state_list.update_state_list.create_output_file")
     @patch("update_state_list.update_state_list.read_input_file")
@@ -438,9 +439,9 @@ class TestUpdateStateList:
         update_state_list("test.csv")
 
         updated_data = mock_create.call_args[0][0]
-        assert updated_data[0]["taxonOrder"] == 200.01
-        assert updated_data[1]["taxonOrder"] == 300
-        assert updated_data[2]["taxonOrder"] == 200.01
+        assert math.isclose(updated_data[0]["taxonOrder"], 200.01)
+        assert math.isclose(updated_data[1]["taxonOrder"], 300)
+        assert math.isclose(updated_data[2]["taxonOrder"], 200.01)
 
     @patch("update_state_list.update_state_list.create_output_file")
     @patch("update_state_list.update_state_list.read_input_file")
