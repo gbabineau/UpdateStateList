@@ -206,7 +206,7 @@ def main():
         tomllib.TOMLDecodeError: If pyproject.toml contains invalid TOML syntax
     """
     arg_parser = argparse.ArgumentParser(
-        prog="update-state-list", description="Update elements of a state list."
+        prog="generate-docx", description="Generate a DOCX document from an official list CSV."
     )
     with open("pyproject.toml", "rb") as f:
         pyproject_data = tomllib.load(f)

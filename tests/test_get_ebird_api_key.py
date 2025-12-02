@@ -26,4 +26,3 @@ def test_get_ebird_api_key_invalid(monkeypatch):
         get_ebird_api_key()
     assert exception_info.type is SystemExit
     assert "ebird API key must be specified" in str(exception_info.value)
-    assert "ebird API key must be specified" in str(exception_info.value)

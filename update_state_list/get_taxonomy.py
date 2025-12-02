@@ -1,6 +1,6 @@
 
 """
-
+This module provides functionality to retrieve and cache the eBird taxonomy using the eBird API.
 """
 import json
 

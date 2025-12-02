@@ -69,7 +69,7 @@ python -m update_state_list.generate_docx [options]
 #### Example of generate_docx
 
 ```bash
-python -m update_state_list.python generate_docx --official_list_csv data/virginiaStateListDec2025_updated.csv
+python -m update_state_list.generate_docx --official_list_csv data/virginiaStateListDec2025_updated.csv
 ```
 
 #### Output of generate_docx

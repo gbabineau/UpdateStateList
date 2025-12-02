@@ -119,7 +119,7 @@ def get_matching_taxon(common_name, taxonomy) -> tuple[list, bool]:
     Find a matching taxon entry from the taxonomy list based on common name.
     This function attempts to find a taxon in the taxonomy list by matching the
     common name. If an exact match is not found, it tries to match using a base
-    name (the part before thr first non-alphabetic character, excluding spaces
+    name (the part before the first non-alphabetic character, excluding spaces
     and hyphens).
     Args:
         common_name (str): The common name of the species to search for.
