@@ -187,7 +187,24 @@ def _add_category_row(table, text, color):
 
 
 def main():
-    """Main function for the app."""
+    """
+    Main function for the generate_docx application.
+    This function sets up command-line argument parsing for the update-state-list program.
+    It reads the version from pyproject.toml, configures logging based on verbosity,
+    and processes the official list CSV file to generate a DOCX document.
+    Args:
+        None (uses command-line arguments via argparse)
+    Command-line Arguments:
+        --version: Display the program version and exit
+        --verbose: Enable verbose logging output (INFO level)
+        --official_list_csv: Path to the CSV file of the official list created by
+                            update_state_list (required)
+    Returns:
+        None
+    Raises:
+        FileNotFoundError: If pyproject.toml or the specified CSV file cannot be found
+        tomllib.TOMLDecodeError: If pyproject.toml contains invalid TOML syntax
+    """
     arg_parser = argparse.ArgumentParser(
         prog="update-state-list", description="Update elements of a state list."
     )

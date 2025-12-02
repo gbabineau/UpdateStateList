@@ -218,7 +218,25 @@ def update_state_list(common_names_file) -> None:
 
 
 def main():
-    """Main function for the app."""
+    """
+    Main function for the app.
+    This function sets up the command-line argument parser for the
+    update-state-list tool, which updates elements of a state list. It reads
+    the version from pyproject.toml, configures logging based on verbosity flag,
+    and calls update_state_list with the provided common names file.
+    Args:
+        None
+    Returns:
+        None
+    Command-line Arguments:
+        --version: Display the program version and exit
+        --verbose: Enable verbose logging output
+        --common_names_file: Path to the file containing list of birds for a
+        region/time frame (required)
+    Raises:
+        FileNotFoundError: If pyproject.toml or common_names_file are not found
+        tomllib.TOMLDecodeError: If pyproject.toml is not valid TOML format
+    """
     arg_parser = argparse.ArgumentParser(
         prog="update-state-list", description="Update elements of a state list."
     )

@@ -179,8 +179,6 @@ class TestGetMatchingTaxon:
         assert is_subspecies is True
 
 
-    """Tests for update_state_list function."""
-
     @patch("update_state_list.update_state_list.create_output_file")
     @patch("update_state_list.update_state_list.read_input_file")
     @patch("update_state_list.update_state_list.get_taxonomy_of_interest")
