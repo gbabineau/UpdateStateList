@@ -75,3 +75,28 @@ python -m update_state_list.generate_docx --official_list_csv data/virginiaState
 #### Output of generate_docx
 
 The program will create a file with the same name as the input file but with a docx extension. In the example above it would be data/virginiaStateListDec2025_updated.docx
+
+### generate_html
+
+Generates a HTML document from the updated state list.
+
+```bash
+python -m update_state_list.generate_html [options]
+```
+
+#### Command Line Options for generate_html
+
+- `--version` - Display the program version and exit
+- `--verbose` - Enable verbose logging output (INFO level)
+- `--official_list_csv` -  Path to the CSV file of the official list created by
+                            update_state_list (required)
+
+#### Example of generate_html
+
+```bash
+python -m update_state_list.generate_html --official_list_csv data/virginiaStateListDec2025_updated.csv
+```
+
+#### Output of generate_html
+
+The program will create a file with the same name as the input file but with a html extension. In the example above it would be data/virginiaStateListDec2025_updated.html
