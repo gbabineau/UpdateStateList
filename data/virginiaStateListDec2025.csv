@@ -1,19 +1,19 @@
 comName,State Status,Sort as
-Black-bellied Whistling-Duck,Rare
+Black-bellied Whistling-Duck,Occasional
 West Indian Whistling-Duck,Accidental (3a)
-Fulvous Whistling-Duck,Rare
+Fulvous Whistling-Duck,Accidental
 Snow Goose,
 Snow Goose (Lesser),
 Snow Goose (Greater),
-Ross's Goose,Rare
+Ross's Goose,
 Greater White-fronted Goose,
 Pink-footed Goose,Accidental
 Brant,
-Barnacle Goose,Rare (3a)
+Barnacle Goose,Accidental (3a)
 Cackling Goose,
 Canada Goose,
 Mute Swan,(5)
-Trumpeter Swan,Accidental (5)
+Trumpeter Swan,
 Tundra Swan,
 Wood Duck,
 Garganey,Accidental
@@ -21,11 +21,11 @@ Blue-winged Teal,
 Cinnamon Teal,Accidental
 Northern Shoveler,
 Gadwall,
-Eurasian Wigeon,Rare
+Eurasian Wigeon,Occasional
 American Wigeon,
 Mallard,
 American Black Duck,
-Mottled Duck,Accidental
+Mottled Duck,Rare
 White-cheeked Pintail,Accidental
 Northern Pintail,
 Green-winged Teal,
@@ -38,8 +38,8 @@ Tufted Duck,Accidental
 Greater Scaup,
 Lesser Scaup,
 King Eider,Rare
-Common Eider,Rare
-Harlequin Duck,Rare
+Common Eider,Occasional
+Harlequin Duck,Occasional
 Surf Scoter,
 White-winged Scoter,
 Black Scoter,
@@ -55,15 +55,15 @@ Northern Bobwhite,
 Wild Turkey,
 Ruffed Grouse,
 Ring-necked Pheasant,(6)
-American Flamingo,Rare
+American Flamingo,Accidental
 Pied-billed Grebe,
 Horned Grebe,
 Red-necked Grebe,
-Eared Grebe,Rare
+Eared Grebe,Occasional
 Western Grebe,Rare
-Clark's Grebe,Rare
+Clark's Grebe,Accidental
 Common Ground Dove,Rare
-White-winged Dove,Rare
+White-winged Dove,Occasional
 Mourning Dove,
 White-crowned Pigeon,Accidental
 Eurasian Collared-Dove,(5)
@@ -78,15 +78,15 @@ Chimney Swift,
 Mexican Violetear,Accidental
 Rivoli's Hummingbird,Accidental
 Ruby-throated Hummingbird,
-Black-chinned Hummingbird,Accidental
+Black-chinned Hummingbird,Rare
 Anna's Hummingbird,Accidental
 Calliope Hummingbird,Accidental
-Rufous Hummingbird,
+Rufous Hummingbird,Occasional
 Allen's Hummingbird,Accidental
 Violet-crowned Hummingbird,Accidental
 Buff-bellied Hummingbird,Accidental
 Limpkin,Rare
-Sandhill Crane,
+Sandhill Crane,Occasional
 Paint-billed Crake,Accidental
 King Rail,
 Clapper Rail,
@@ -106,15 +106,14 @@ Killdeer,
 Semipalmated Plover,
 Piping Plover,
 Northern Lapwing,Accidental
-Lesser/Greater Sand-Plover,Accidental,Siberian Sand-Plover
-Wilson's Plover,
+sand-plover sp.,Accidental,Siberian Sand-Plover
+Wilson's Plover,Rare
 Mountain Plover,Accidental
 Snowy Plover,Accidental
-Upland Sandpiper,Rare
-Whimbrel,,Hudsonian Whimbrel
-Whimbrel (Hudsonian),,Hudsonian Whimbrel
-Whimbrel (European),Accidental,Eurasian Whimbrel
-Long-billed Curlew,Rare
+Upland Sandpiper,Occasional
+Hudsonian Whimbrel,,
+Eurasian Whimbrel,Accidental,
+Long-billed Curlew,Occasional
 Bar-tailed Godwit,Accidental
 Bar-tailed Godwit (European),Accidental
 Bar-tailed Godwit (Siberian),Accidental
@@ -131,17 +130,17 @@ Red-necked Stint,Accidental (2)
 Sanderling,
 Dunlin,
 Purple Sandpiper,
-Baird's Sandpiper,Rare
+Baird's Sandpiper,Occasional
 Least Sandpiper,
 White-rumped Sandpiper,
-Buff-breasted Sandpiper,Rare
+Buff-breasted Sandpiper,Occasional
 Pectoral Sandpiper,
 Semipalmated Sandpiper,
 Western Sandpiper,
 Short-billed Dowitcher,
 Short-billed Dowitcher (griseus),
 Short-billed Dowitcher (hendersoni),
-Long-billed Dowitcher,Rare
+Long-billed Dowitcher,
 Eurasian Woodcock,Accidental
 American Woodcock,
 Wilson's Snipe,
@@ -153,21 +152,21 @@ Willet,
 Willet (Eastern),
 Willet (Western),
 Greater Yellowlegs,
-Wilson's Phalarope,
-Red-necked Phalarope,
-Red Phalarope,
+Wilson's Phalarope,Occasional
+Red-necked Phalarope,Occasional
+Red Phalarope,Pelagic
 Great Skua,Rare
 South Polar Skua,Accidental
-Pomarine Jaeger,
+Pomarine Jaeger,Pelagic
 Parasitic Jaeger,
-Long-tailed Jaeger,
-Dovekie,
-Common Murre,Accidental
+Long-tailed Jaeger,Pelagic
+Dovekie,Pelagic
+Common Murre,Rare
 Thick-billed Murre,Rare
-Razorbill,Rare
+Razorbill,
 Black Guillemot,Accidental (2)
 Ancient Murrelet,Accidental (2)
-Atlantic Puffin,
+Atlantic Puffin,Pelagic
 Brown Noddy,Accidental (2)
 Sooty Tern,Rare
 Bridled Tern,Rare
@@ -184,10 +183,10 @@ Royal Tern,
 Sandwich Tern,
 Elegant Tern,Accidental
 Black Skimmer,
-Black-legged Kittiwake,
+Black-legged Kittiwake,Pelagic
 Sabine's Gull,Rare
 Bonaparte's Gull,
-Black-headed Gull,Rare
+Black-headed Gull,Occasional
 Little Gull,Rare
 Laughing Gull,
 Franklin's Gull,Rare
@@ -195,44 +194,46 @@ Black-tailed Gull,Accidental
 Heermann's Gull,Accidental
 Common Gull,Accidental
 Ring-billed Gull,
+Vega Gull,Accidental
 California Gull,Rare
 American Herring Gull,
 Yellow-legged Gull,Accidental
-Iceland Gull,Rare
+Iceland Gull,Occasional
 Iceland Gull (Thayer's),Rare
+Iceland Gull (Kumliens's),Occasional
 Lesser Black-backed Gull,
-Glaucous Gull,Rare
+Glaucous Gull,Occasional
 Great Black-backed Gull,
 White-tailed Tropicbird,Accidental
 Red-billed Tropicbird,Accidental (2)
 Red-throated Loon,
 Pacific Loon,Rare
 Common Loon,
-Yellow-nosed Albatross,Accidental,Atlantic Yellow-nosed Albatross
+Atlantic Yellow-nosed Albatross,Accidental
 Black-browed Albatross,Accidental
 Wilson's Storm-Petrel,
 White-faced Storm-Petrel,Rare
 European Storm-Petrel,Accidental
-Leach's Storm-Petrel,Rare
+Leach's Storm-Petrel,Pelagic
 Band-rumped Storm-Petrel,Rare
-Northern Fulmar,
+Northern Fulmar,Pelagic
 Trindade Petrel,Accidental
 Bermuda Petrel,Accidental
 Black-capped Petrel,Rare
-Fea's Petrel,Accidental (2),Desertas Petrel
+Desertas Petrel,Accidental (2)
 Bulwer's Petrel,Accidental (2)
-Cory's Shearwater,
-Scopoli's Shearwater,
+Cory's Shearwater,Pelagic
+Scopoli's Shearwater,Pelagic
 Sooty Shearwater,
 Great Shearwater,
-Manx Shearwater,
-Sargasso Shearwater,
+Manx Shearwater,Pelagic
+Sargasso Shearwater,Pelagic
 Wood Stork,Rare
 Magnificent Frigatebird,Rare
 Masked Booby,Accidental
-Brown Booby,Accidental
+Brown Booby,Rare
 Northern Gannet,
-Anhinga,Rare
+Anhinga,
 Great Cormorant,
 Double-crested Cormorant,
 Neotropic Cormorant,Accidental
@@ -261,8 +262,8 @@ Black Vulture,
 Turkey Vulture,
 Osprey,
 White-tailed Kite,Accidental
-Swallow-tailed Kite,Rare
-Golden Eagle,Rare
+Swallow-tailed Kite,Occasional
+Golden Eagle,
 Sharp-shinned Hawk,
 Cooper's Hawk,
 American Goshawk,Rare
@@ -277,7 +278,7 @@ Swainson's Hawk,Rare
 Zone-tailed Hawk,Accidental
 Red-tailed Hawk,
 Red-tailed Hawk (Harlan's),Accidental
-Rough-legged Hawk,
+Rough-legged Hawk,Occasional
 Ferruginous Hawk,Accidental
 American Barn Owl,
 Eastern Screech-Owl,
@@ -307,19 +308,19 @@ Gyrfalcon,Accidental
 Peregrine Falcon,
 Prairie Falcon,Accidental
 Monk Parakeet,(6)
-Ash-throated Flycatcher,Rare
+Ash-throated Flycatcher,Occasional
 Great Crested Flycatcher,
 Tropical Kingbird,Accidental
 Couch's Kingbird,Accidental
-Western Kingbird,Rare
+Western Kingbird,Occasional
 Eastern Kingbird,
 Gray Kingbird,Rare
 Scissor-tailed Flycatcher,Rare
 Fork-tailed Flycatcher,Rare
-Olive-sided Flycatcher,Rare
+Olive-sided Flycatcher,
 Western Wood-Pewee,Accidental
 Eastern Wood-Pewee,
-Yellow-bellied Flycatcher,Rare
+Yellow-bellied Flycatcher,
 Acadian Flycatcher,
 Alder Flycatcher,
 Willow Flycatcher,
@@ -368,7 +369,7 @@ Brown-headed Nuthatch,
 Brown Creeper,
 Blue-gray Gnatcatcher,
 Rock Wren,Accidental
-Bewick's Wren,Rare
+Bewick's Wren,Extirpated
 Carolina Wren,
 Northern House Wren,
 Winter Wren,
@@ -384,7 +385,7 @@ Mountain Bluebird,Accidental
 Townsend's Solitaire,Accidental
 Veery,
 Gray-cheeked Thrush,
-Bicknell's Thrush,Rare
+Bicknell's Thrush,
 Swainson's Thrush,
 Hermit Thrush,
 Wood Thrush,
@@ -396,37 +397,37 @@ White Wagtail,Accidental
 American Pipit,
 Sprague's Pipit,Accidental (2)
 Evening Grosbeak,Rare
-Pine Grosbeak,Rare
-Gray-crowned Rosy-Finch,(5)
+Pine Grosbeak,Accidental
+Gray-crowned Rosy-Finch,Accidental
 House Finch,(5)
 Purple Finch,
 Redpoll,Rare
-Red Crossbill,Rare
+Red Crossbill,Occasional
 White-winged Crossbill,Rare
 Pine Siskin,
 Lesser Goldfinch,Accidental
 American Goldfinch,
-Lapland Longspur,Rare
+Lapland Longspur,
 Chestnut-collared Longspur,Accidental (2)
 Smith's Longspur,Accidental
 Snow Bunting,
-Bachman's Sparrow,Rare
+Bachman's Sparrow,Extirpated
 Grasshopper Sparrow,
 Black-throated Sparrow,Accidental
-Lark Sparrow,Rare
+Lark Sparrow,Occasional
 Lark Bunting,Accidental
 Chipping Sparrow,
-Clay-colored Sparrow,Rare
+Clay-colored Sparrow,Occasional
 Field Sparrow,
 Brewer's Sparrow,Accidental
 Fox Sparrow,
 Fox Sparrow (Red),
-American Tree Sparrow,
+American Tree Sparrow,Occasional
 Dark-eyed Junco,
 Dark-eyed Junco (Oregon),Rare
 Dark-eyed Junco (Pink-sided),Accidental
 White-crowned Sparrow,
-White-crowned Sparrow (Gambel's),Accidental
+White-crowned Sparrow (Gambel's),Occasional
 Harris's Sparrow,Rare
 White-throated Sparrow,
 Vesper Sparrow,
@@ -437,7 +438,7 @@ Nelson's Sparrow (Nelson's),
 Nelson's Sparrow (James Bay),
 Nelson's Sparrow (Atlantic Coast),
 Saltmarsh Sparrow,
-Henslow's Sparrow,Rare
+Henslow's Sparrow,Occasional
 Savannah Sparrow,
 Savannah Sparrow (Ipswich),
 Song Sparrow,
@@ -447,7 +448,7 @@ Green-tailed Towhee,Accidental
 Spotted Towhee,Accidental (2)
 Eastern Towhee,
 Yellow-breasted Chat,
-Yellow-headed Blackbird,Rare
+Yellow-headed Blackbird,Occasional
 Bobolink,
 Eastern Meadowlark,
 Western Meadowlark,Accidental
@@ -456,10 +457,10 @@ Bullock's Oriole,Rare
 Baltimore Oriole,
 Scott's Oriole,Accidental
 Red-winged Blackbird,
-Shiny Cowbird,Accidental (2)
+Shiny Cowbird,Accidental
 Brown-headed Cowbird,
 Rusty Blackbird,
-Brewer's Blackbird,Rare
+Brewer's Blackbird,Occasional
 Common Grackle,
 Boat-tailed Grackle,
 Ovenbird,
@@ -476,7 +477,7 @@ Orange-crowned Warbler,
 Lucy's Warbler,Accidental
 Nashville Warbler,
 Virginia's Warbler,Accidental
-Connecticut Warbler,Rare
+Connecticut Warbler,
 MacGillivray's Warbler,Accidental
 Mourning Warbler,
 Kentucky Warbler,
@@ -490,7 +491,7 @@ Northern Parula,
 Magnolia Warbler,
 Bay-breasted Warbler,
 Blackburnian Warbler,
-Yellow Warbler,,Northern Yellow Warbler
+Northern Yellow Warbler,
 Chestnut-sided Warbler,
 Blackpoll Warbler,
 Black-throated Blue Warbler,
@@ -501,23 +502,24 @@ Pine Warbler,
 Yellow-rumped Warbler,
 Yellow-throated Warbler,
 Prairie Warbler,
-Black-throated Gray Warbler,Accidental
-Townsend's Warbler,Accidental
+Black-throated Gray Warbler,Rare
+Townsend's Warbler,Rare
 Black-throated Green Warbler,
 Canada Warbler,
 Wilson's Warbler,
 Summer Tanager,
 Scarlet Tanager,
-Western Tanager,Rare
+Western Tanager,Occasional
 Northern Cardinal,
 Rose-breasted Grosbeak,
 Black-headed Grosbeak,Rare
 Blue Grosbeak,
 Lazuli Bunting,Accidental
 Indigo Bunting,
-Painted Bunting,Rare
+Painted Bunting,
 Dickcissel,Rare
 Passenger Pigeon,(4)
 Eskimo Curlew,(4)
 Carolina Parakeet,(4)
 Bachman's Warbler,(4)
+Short-billed Gull,Accidental
