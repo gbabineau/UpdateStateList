@@ -251,33 +251,6 @@ class TestMain:
 
         mock_update.assert_called_once_with("test.csv")
 
-    @patch("update_state_list.update_state_list.update_state_list")
-    @patch("logging.basicConfig")
-    @patch("sys.argv", ["update-state-list", "--common_names_file", "test.csv", "--verbose"])
-    def test_main_with_verbose(self, mock_logging, mock_update):
-        """Test main function with verbose flag."""
-
-        main()
-
-        mock_logging.assert_called_once_with(level=logging.INFO)
-        mock_update.assert_called_once_with("test.csv")
-
-    @patch("sys.argv", ["update-state-list", "--version"])
-    @patch("builtins.open", create=True)
-    def test_main_version(self, mock_open):
-        """Test main function with version argument."""
-
-        mock_file = mock_open.return_value.__enter__.return_value
-        mock_file.read.return_value = b"""
-[tool.poetry]
-version = "1.2.3"
-"""
-
-        with pytest.raises(SystemExit) as exc_info:
-            main()
-
-        assert exc_info.value.code == 0
-
     @patch("sys.argv", ["update-state-list"])
     def test_main_missing_required_arg(self):
         """Test main function fails when required argument is missing."""

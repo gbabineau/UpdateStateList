@@ -3,10 +3,8 @@ Main function for the generate_docx application
 plumages.
 """
 
-import argparse
 import csv
 import logging
-import tomllib
 
 from docx import Document, opc
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -14,6 +12,7 @@ from docx.oxml.ns import qn
 from docx.oxml.shared import OxmlElement
 from docx.shared import Inches
 
+from update_state_list import parse_common_arguments
 
 def add_hyperlink(paragraph, url, text, color, underline):
     """
@@ -205,19 +204,9 @@ def main():
         FileNotFoundError: If pyproject.toml or the specified CSV file cannot be found
         tomllib.TOMLDecodeError: If pyproject.toml contains invalid TOML syntax
     """
-    arg_parser = argparse.ArgumentParser(
-        prog="generate-docx", description="Generate a DOCX document from an official list CSV."
-    )
-    with open("pyproject.toml", "rb") as f:
-        pyproject_data = tomllib.load(f)
-    version = (
-        pyproject_data.get("tool", {}).get("poetry", {}).get("version", "0.0.0")
-    )
-    arg_parser.add_argument(
-        "--version", action="version", version=f"%(prog)s {version}"
-    )
-    arg_parser.add_argument(
-        "--verbose", action="store_true", help="increase verbosity"
+    arg_parser = parse_common_arguments.parse_common_arguments(
+        program_name="generate-docx",
+        description="Generate a DOCX document from an official list CSV."
     )
     arg_parser.add_argument(
         "--official_list_csv",
@@ -225,10 +214,6 @@ def main():
         help="csv of official list created by update_state_list",
     )
     args = arg_parser.parse_args()
-
-    if args.verbose:
-        logging.basicConfig(level=logging.INFO)
-
     generate_docx(args.official_list_csv)
 
 
