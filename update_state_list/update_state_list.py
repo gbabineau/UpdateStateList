@@ -7,15 +7,14 @@ can in turn be used for input by the generate_docx utility to create
 a document.
 """
 
-import argparse
 import csv
 import logging
-import tomllib
 import re
 
 from update_state_list import (
     get_ebird_api_key,
     get_taxonomy,
+    parse_common_arguments,
 )
 
 
@@ -237,19 +236,9 @@ def main():
         FileNotFoundError: If pyproject.toml or common_names_file are not found
         tomllib.TOMLDecodeError: If pyproject.toml is not valid TOML format
     """
-    arg_parser = argparse.ArgumentParser(
-        prog="update-state-list", description="Update elements of a state list."
-    )
-    with open("pyproject.toml", "rb") as f:
-        pyproject_data = tomllib.load(f)
-    version = (
-        pyproject_data.get("tool", {}).get("poetry", {}).get("version", "0.0.0")
-    )
-    arg_parser.add_argument(
-        "--version", action="version", version=f"%(prog)s {version}"
-    )
-    arg_parser.add_argument(
-        "--verbose", action="store_true", help="increase verbosity"
+    arg_parser = parse_common_arguments.parse_common_arguments(
+        program_name="update-state-list",
+        description="Update elements of a state list."
     )
     arg_parser.add_argument(
         "--common_names_file",
@@ -257,10 +246,6 @@ def main():
         help="list of birds had for a region/time frame",
     )
     args = arg_parser.parse_args()
-
-    if args.verbose:
-        logging.basicConfig(level=logging.INFO)
-
     update_state_list(args.common_names_file)
 
 

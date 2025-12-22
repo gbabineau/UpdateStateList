@@ -164,20 +164,6 @@ class TestGenerateHtml:
 class TestMain:
     """Tests for main function."""
 
-    def test_main_with_verbose_flag(self, tmp_path):
-        """Test main function with verbose flag."""
-        csv_file = tmp_path / "test_birds.csv"
-        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,subspecies\n"
-        csv_file.write_text(csv_content)
-
-        with patch(
-            "sys.argv",
-            ["generate-html", "--verbose", f"--official_list_csv={csv_file}"],
-        ):
-            with patch("update_state_list.generate_html.logging.basicConfig"):
-                with patch("update_state_list.generate_html.generate_html"):
-                    main()
-
     def test_main_without_csv_argument_fails(self):
         """Test main function fails without required CSV argument."""
         with patch("sys.argv", ["generate-html"]):

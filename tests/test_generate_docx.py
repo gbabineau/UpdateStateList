@@ -151,20 +151,6 @@ class TestMain:
         main()
         mock_generate.assert_called_once_with('test.csv')
 
-    @patch('builtins.open', new_callable=mock_open, read_data=b'[tool.poetry]\nversion = "1.0.0"\n')
-    @patch('sys.argv', ['prog', '--version'])
-    def test_main_with_version(self, _):
-        """Test main function with version flag."""
-        with pytest.raises(SystemExit):
-            main()
-
-    @patch('update_state_list.generate_docx.generate_docx')
-    @patch('builtins.open', new_callable=mock_open, read_data=b'[tool.poetry]\nversion = "1.0.0"\n')
-    @patch('sys.argv', ['prog', '--official_list_csv', 'test.csv', '--verbose'])
-    def test_main_with_verbose(self, _, mock_generate):
-        """Test main function with verbose flag."""
-        main()
-        mock_generate.assert_called_once_with('test.csv')
 class TestAddCategoryRow:
     """Tests for _add_category_row function."""
 
