@@ -184,6 +184,7 @@ def generate_html(official_list_file) -> None:
                 bird.get("sciName", ""),
                 state_status,
             )
+        html_file.writelines("</table>\n")
     logging.info("Document saved as %s", output_file)
 
 
