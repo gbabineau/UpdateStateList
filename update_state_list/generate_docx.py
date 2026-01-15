@@ -1,6 +1,5 @@
 """
 Main function for the generate_docx application
-plumages.
 """
 
 import csv
@@ -12,7 +11,8 @@ from docx.oxml.ns import qn
 from docx.oxml.shared import OxmlElement
 from docx.shared import Inches
 
-from update_state_list import parse_common_arguments
+from update_state_list import parse_common_arguments, create_links
+
 
 def add_hyperlink(paragraph, url, text, color, underline):
     """
@@ -137,7 +137,7 @@ def generate_docx(official_list_file) -> None:
 
         add_hyperlink(
             row_cells[1].paragraphs[0],
-            f"https://ebird.org/species/{species_code}/US-VA",
+            create_links.ebird_species_information(species_code),
             bird.get("comName"),
             "0000FF",
             False,
@@ -148,10 +148,7 @@ def generate_docx(official_list_file) -> None:
 
         add_hyperlink(
             row_cells[4].paragraphs[0],
-            f"http://ebird.org/ebird/map/{species_code}?neg=true&env.minX="
-            "-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&"
-            "gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&getLocations=states&"
-            "states=US-VA",
+            create_links.ebird_map_link(species_code),
             "Map",
             "0000FF",
             False,
@@ -159,9 +156,7 @@ def generate_docx(official_list_file) -> None:
 
         add_hyperlink(
             row_cells[5].paragraphs[0],
-            f"http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes="
-            f"{species_code}&getLocations=states&states=US-VA&bYear=1900&eYear="
-            "Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA",
+            create_links.ebird_chart_link(species_code),
             "Chart",
             "0000FF",
             False,
@@ -206,7 +201,7 @@ def main():
     """
     arg_parser = parse_common_arguments.parse_common_arguments(
         program_name="generate-docx",
-        description="Generate a DOCX document from an official list CSV."
+        description="Generate a DOCX document from an official list CSV.",
     )
     arg_parser.add_argument(
         "--official_list_csv",

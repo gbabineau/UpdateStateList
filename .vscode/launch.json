@@ -69,5 +69,18 @@
                 "data/virginiaStateListDec2025_updated.csv"
             ]
         },
+        {
+            "name": "Python: Generate Virginia XLSX",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "update_state_list.generate_xlsx",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--verbose",
+                "--official_list_csv",
+                "data/virginiaStateListDec2025_updated.csv"
+            ]
+        },
     ]
 }
