@@ -10,6 +10,8 @@ import xlsxwriter
 
 from update_state_list import parse_common_arguments, create_links
 
+STATE_STATUS = "State Status"
+
 headers = [
     "Level",
     "Count",
@@ -17,13 +19,13 @@ headers = [
     "Species Information Link",
     "Scientific Name",
     "Category",
-    "State Status",
+    STATE_STATUS,
     "Map Link",
     "Chart Link",
 ]
 
 
-def write_taxonomy_header(worksheet, row, level, text, format):
+def write_taxonomy_header(worksheet, row, level, text, header_format):
     """
     Write a  taxonomy header.
 
@@ -31,13 +33,13 @@ def write_taxonomy_header(worksheet, row, level, text, format):
         worksheet: File object opened in write mode to write the output.
         row : row in worksheet to write
         text (str): The family name text to be displayed in the header.
-
+        header_format : format to use for the header
     Returns:
         None
     """
     worksheet.write(row, headers.index("Level"), level)
     worksheet.write(row, headers.index("Species"), text)
-    worksheet.set_row(row, None, format)  # None for default height
+    worksheet.set_row(row, None, header_format)  # None for default height
 
 
 def write_taxon(
@@ -94,7 +96,7 @@ def write_taxon(
     else:
         category = "1"
     worksheet.write(row, headers.index("Category"), category)
-    worksheet.write(row, headers.index("State Status"), state_status)
+    worksheet.write(row, headers.index(STATE_STATUS), state_status)
     worksheet.write_url(
         row,
         headers.index("Map Link"),
@@ -144,7 +146,7 @@ def generate_xlsx(official_list_file) -> None:
     historically_occurring_section = False
     for bird in birds_data:
         # Add historical species row if first occurrence
-        state_status = bird.get("State Status", "")
+        state_status = bird.get(STATE_STATUS, "")
         if state_status == "(4)" and not historically_occurring_section:
             write_taxonomy_header(
                 worksheet, row, "", "Historically Occurring", light_gray_format
