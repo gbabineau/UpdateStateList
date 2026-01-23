@@ -11,7 +11,7 @@ import xlsxwriter
 from update_state_list import parse_common_arguments, create_links
 
 STATE_STATUS = "State Status"
-
+ATLAS_LINK = "Atlas Link"
 headers = [
     "Level",
     "Count",
@@ -22,6 +22,7 @@ headers = [
     STATE_STATUS,
     "Map Link",
     "Chart Link",
+    ATLAS_LINK,
 ]
 
 
@@ -50,6 +51,7 @@ def write_taxon(
     common_name,
     scientific_name,
     state_status,
+    atlas_url,
 ):
     """
     Write a table row with taxon information to an xlsx file.
@@ -67,6 +69,7 @@ def write_taxon(
         common_name (str): The common name of the species.
         scientific_name (str): The scientific name in italic format.
         state_status (str): The presence status of the species in the state.
+        atlas_utl (str): Link to atlas information
 
     Returns:
         None
@@ -109,7 +112,13 @@ def write_taxon(
         create_links.ebird_chart_link(species_code),
         string="Chart",
     )
-
+    if atlas_url != "":
+        worksheet.write_url(
+            row,
+            headers.index(ATLAS_LINK),
+            atlas_url,
+            string=ATLAS_LINK,
+        )
 
 def generate_xlsx(official_list_file) -> None:
     """
@@ -193,6 +202,7 @@ def generate_xlsx(official_list_file) -> None:
             bird.get("comName"),
             bird.get("sciName", ""),
             state_status,
+            bird.get("atlasUrl"),
         )
         row = row + 1
     worksheet.autofilter(0, 0, row-1, len(headers)-1)

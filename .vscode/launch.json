@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Python: Test Update State List",
             "type": "debugpy",
@@ -18,7 +19,7 @@
             ]
         },
         {
-            "name": "Python: Generate docx",
+            "name": "Python: Test Generate docx",
             "type": "debugpy",
             "request": "launch",
             "module": "update_state_list.generate_docx",
@@ -27,7 +28,7 @@
             "args": [
                 "--verbose",
                 "--official_list_csv",
-                "tests/resources/test_updated.csv"
+                "reports/test_updated.csv"
             ]
         },
         {
@@ -53,7 +54,7 @@
             "args": [
                 "--verbose",
                 "--official_list_csv",
-                "data/virginiaStateListDec2025_updated.csv"
+                "reports/virginiaStateListDec2025_updated.csv"
             ]
         },
         {
@@ -66,7 +67,7 @@
             "args": [
                 "--verbose",
                 "--official_list_csv",
-                "data/virginiaStateListDec2025_updated.csv"
+                "reports/virginiaStateListDec2025_updated.csv"
             ]
         },
         {
@@ -79,7 +80,7 @@
             "args": [
                 "--verbose",
                 "--official_list_csv",
-                "data/virginiaStateListDec2025_updated.csv"
+                "reports/virginiaStateListDec2025_updated.csv"
             ]
         },
         {
