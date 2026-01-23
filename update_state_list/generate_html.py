@@ -28,7 +28,7 @@ def write_taxonomy_header(file_pointer, color, font_size, level, text):
     file_pointer.writelines(
         [
             TR_START,
-            f'  <td colspan=6 bgcolor="{color}"><font size="{font_size}">'
+            f'  <td colspan=7 bgcolor="{color}"><font size="{font_size}">'
             f"&nbsp&nbsp{level} {text}</font></td>",
             TR_END,
         ]
@@ -70,6 +70,7 @@ def write_taxon(
     common_name,
     scientific_name,
     state_status,
+    atlas_url,
 ):
     """
     Write a table row with taxon information to an HTML file.
@@ -86,6 +87,7 @@ def write_taxon(
         common_name (str): The common name of the species.
         scientific_name (str): The scientific name in italic format.
         state_status (str): The presence status of the species in the state.
+        atlas_utl (str): Link to breeding bird atlas
 
     Returns:
         None
@@ -96,18 +98,34 @@ def write_taxon(
         row includes columns for index, common name (as link), scientific name,
         status, map link, and chart link.
     """
-    file_pointer.writelines(
-        [
-            TR_START,
-            f'  <td align="center">{index_text}</font></td>\n',
-            f'  <td align="center"><a href="{create_links.ebird_species_information(species_code)}" target="_blank">{common_name}</a></td>\n',
-            f'  <td align="left">&nbsp&nbsp<i>{scientific_name}</font></td>\n',
-            f'  <td align="center">{state_status}</font></td>\n',
-            f'  <td align="center"><a href="{create_links.ebird_map_link(species_code)}" target="_blank">Map</a></td>\n',
-            f'  <td align="center"><a href="{create_links.ebird_chart_link(species_code)}" target="_blank">Chart</a></td>\n',
-            TR_END,
-        ]
-    )
+    if atlas_url != "":
+        file_pointer.writelines(
+            [
+                TR_START,
+                f'  <td align="center">{index_text}</font></td>\n',
+                f'  <td align="center"><a href="{create_links.ebird_species_information(species_code)}" target="_blank">{common_name}</a></td>\n',
+                f'  <td align="left">&nbsp&nbsp<i>{scientific_name}</font></td>\n',
+                f'  <td align="center">{state_status}</font></td>\n',
+                f'  <td align="center"><a href="{create_links.ebird_map_link(species_code)}" target="_blank">Map</a></td>\n',
+                f'  <td align="center"><a href="{create_links.ebird_chart_link(species_code)}" target="_blank">Chart</a></td>\n',
+                f'  <td align="center"><a href="{atlas_url}" target="_blank">Breeding Data</a></td>\n',
+                TR_END,
+            ]
+        )
+    else:
+        file_pointer.writelines(
+            [
+                TR_START,
+                f'  <td align="center">{index_text}</font></td>\n',
+                f'  <td align="center"><a href="{create_links.ebird_species_information(species_code)}" target="_blank">{common_name}</a></td>\n',
+                f'  <td align="left">&nbsp&nbsp<i>{scientific_name}</font></td>\n',
+                f'  <td align="center">{state_status}</font></td>\n',
+                f'  <td align="center"><a href="{create_links.ebird_map_link(species_code)}" target="_blank">Map</a></td>\n',
+                f'  <td align="center"><a href="{create_links.ebird_chart_link(species_code)}" target="_blank">Chart</a></td>\n',
+                '  <td align="left">&nbsp&nbsp<i>NA</font></td>\n',
+                TR_END,
+            ]
+        )
 
 
 def generate_html(official_list_file) -> None:
@@ -136,6 +154,7 @@ def generate_html(official_list_file) -> None:
             '  <td style="width:12%" align="center"><font size="5">State Status</font></td>\n',
             '  <td style="width:19%" align="center"><font size="5">Spatial Distribution</font></td>\n',
             '  <td style="width:20%" align="center"><font size="5">Counts & Seasonality</font></td>\n',
+            '  <td style="width:20%" align="center"><font size="5">Breeding Data</font></td>\n',
             TR_END,
         ]
         html_file.writelines(table_definition)
@@ -149,7 +168,7 @@ def generate_html(official_list_file) -> None:
             state_status = bird.get("State Status", "")
             if state_status == "(4)" and not historically_occurring_section:
                 html_file.writelines(
-                    '<tr><td align="center" colspan=6><font size="5">Species Believed to Have Occurred Historically</font></td></tr>\n'
+                    '<tr><td align="center" colspan=7><font size="5">Species Believed to Have Occurred Historically</font></td></tr>\n'
                 )
                 historically_occurring_section = True
             # Add order row if changed
@@ -182,6 +201,7 @@ def generate_html(official_list_file) -> None:
                 bird.get("comName"),
                 bird.get("sciName", ""),
                 state_status,
+                bird.get("atlasUrl"),
             )
         html_file.writelines("</table>\n")
     logging.info("Document saved as %s", output_file)

@@ -44,8 +44,8 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
         )
     )
     # updated_bird_data.sort(key=lambda x: float(x.get("taxonOrder", 0)))
-
-    output_file = common_names_file.replace(".csv", "_updated.csv")
+    filename = "reports/" + common_names_file.split("/")[-1]
+    output_file = filename.replace(".csv", "_updated.csv")
     with open(output_file, "w", encoding="utf-8", newline="") as f:
         if updated_bird_data:
             fieldnames = [
@@ -58,6 +58,7 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
                 "taxonOrder",
                 "subspecies",
                 "Sort as",
+                "atlasUrl"
             ]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
@@ -210,7 +211,6 @@ def update_state_list(common_names_file) -> None:
             else:
                 non_issf_subspecies_order_keeper = 0
                 bird["subspecies"] = matching_taxon.get("category") == "issf"
-
             updated_bird_data.append(bird)
 
     create_output_file(updated_bird_data, common_names_file)

@@ -34,7 +34,7 @@ class TestWriteTaxonomyHeader:
         output = mock_file_pointer.getvalue()
         assert "#D9D9D9" in output
         assert "Order Passeriformes" in output
-        assert "<tr>\n  <td colspan=6 bgcolor=" in output
+        assert "<tr>\n  <td colspan=7 bgcolor=" in output
 
     def test_write_taxonomy_header_different_colors(self, mock_file_pointer):
         """Test taxonomy header with different background colors."""
@@ -80,6 +80,7 @@ class TestWriteTaxon:
             "American Robin",
             "Turdus migratorius",
             "Resident",
+            "https://some_url"
         )
         output = mock_file_pointer.getvalue()
         assert "American Robin" in output
@@ -87,6 +88,7 @@ class TestWriteTaxon:
         assert "Resident" in output
         assert "amerob" in output
         assert "<tr>" in output
+        assert "some_url" in output
 
     def test_write_taxon_with_ebird_links(self, mock_file_pointer):
         """Test that taxon row includes eBird links."""
@@ -97,6 +99,7 @@ class TestWriteTaxon:
             "American Robin",
             "Turdus migratorius",
             "Resident",
+            "https://some_url",
         )
         output = mock_file_pointer.getvalue()
         assert "ebird.org/species/amerob/US-VA" in output
@@ -112,6 +115,7 @@ class TestWriteTaxon:
             "American Robin",
             "Turdus migratorius",
             "Resident",
+            "https://some_url",
         )
         output = mock_file_pointer.getvalue()
         assert '<td align="center">' in output

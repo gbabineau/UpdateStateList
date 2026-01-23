@@ -72,6 +72,7 @@ class TestWriteTaxon:
             "American Crow",
             "Corvus brachyrhynchos",
             "(1)",
+            "https://some_url",
         )
 
         assert mock_worksheet.write.call_count >= 6
@@ -90,6 +91,7 @@ class TestWriteTaxon:
             "American Crow",
             "Corvus brachyrhynchos",
             "(1)",
+            "https://some_url",
         )
 
         mock_worksheet.write.assert_any_call(
@@ -107,6 +109,7 @@ class TestWriteTaxon:
             "American Crow",
             "Corvus brachyrhynchos",
             "Permanent Resident (1)",
+            "https://some_url",
         )
 
         mock_worksheet.write.assert_any_call(4, headers.index("Category"), "1")
@@ -121,6 +124,7 @@ class TestWriteTaxon:
             "American Crow",
             "Corvus brachyrhynchos",
             "No parentheses status",
+            "https://some_url",
         )
 
         mock_worksheet.write.assert_any_call(5, headers.index("Category"), "1")
@@ -135,9 +139,10 @@ class TestWriteTaxon:
             "American Crow",
             "Corvus brachyrhynchos",
             "(1)",
+            "https://some_url",
         )
 
-        assert mock_worksheet.write_url.call_count == 3
+        assert mock_worksheet.write_url.call_count == 4
 
 
 class TestGenerateXlsx:
@@ -159,6 +164,7 @@ class TestGenerateXlsx:
                     "speciesCode",
                     "subspecies",
                     STATE_STATUS,
+                    "atlasUrl"
                 ],
             )
             writer.writeheader()
@@ -171,6 +177,19 @@ class TestGenerateXlsx:
                     "speciesCode": "amecro",
                     "subspecies": "False",
                     STATE_STATUS: "(1)",
+                    "atlasUrl": "https://some_url",
+                }
+            )
+            writer.writerow(
+                {
+                    "order": "Passeriformes",
+                    "familyComName": "Corvidae",
+                    "comName": "American Crow",
+                    "sciName": "Corvus brachyrhynchos",
+                    "speciesCode": "amecro",
+                    "subspecies": "False",
+                    STATE_STATUS: "(1)",
+                    "atlasUrl": "",
                 }
             )
             temp_path = f.name
@@ -202,6 +221,7 @@ class TestGenerateXlsx:
                     "speciesCode",
                     "subspecies",
                     STATE_STATUS,
+                    "atlasUrl",
                 ],
             )
             writer.writeheader()
@@ -215,6 +235,7 @@ class TestGenerateXlsx:
                         "speciesCode": f"code{i}",
                         "subspecies": "False",
                         STATE_STATUS: "(1)",
+                        "atlasUrl": "https://some_url"
                     }
                 )
             temp_path = f.name
@@ -242,6 +263,7 @@ class TestGenerateXlsx:
                     "speciesCode",
                     "subspecies",
                     STATE_STATUS,
+                    "atlasUrl",
                 ],
             )
             writer.writeheader()
@@ -254,6 +276,7 @@ class TestGenerateXlsx:
                     "speciesCode": "curcur",
                     "subspecies": "False",
                     STATE_STATUS: "(1)",
+                    "atlasUrl": "https://some_url",
                 }
             )
             writer.writerow(
@@ -265,6 +288,7 @@ class TestGenerateXlsx:
                     "speciesCode": "hishis",
                     "subspecies": "False",
                     STATE_STATUS: "(4)",
+                    "atlasUrl": "",
                 }
             )
             temp_path = f.name

@@ -79,7 +79,7 @@ def generate_docx(official_list_file) -> None:
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     # Create table
-    table = doc.add_table(rows=1, cols=6)
+    table = doc.add_table(rows=1, cols=7)
     table.style = "Light Grid Accent 1"
 
     # Set headers
@@ -90,8 +90,9 @@ def generate_docx(official_list_file) -> None:
         "State Status",
         "Spatial Distribution",
         "Counts & Seasonality",
+        "Breeding Data"
     ]
-    widths = [0.5, 1.1, 1.1, 1.1, 1.1, 1.1]
+    widths = [0.5, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1]
 
     for i, (header, width) in enumerate(zip(headers, widths)):
         table.columns[i].width = Inches(width)
@@ -161,9 +162,19 @@ def generate_docx(official_list_file) -> None:
             "0000FF",
             False,
         )
+        atlas_url = bird.get("atlasUrl", "")
+        if atlas_url != "":
+            add_hyperlink(
+                row_cells[6].paragraphs[0],
+                atlas_url,
+                "VA Breeding data",
+                "0000FF",
+                False,
+            )
 
     # Save document
-    output_file = official_list_file.replace(".csv", ".docx")
+    filename = "reports/"+official_list_file.split("/")[-1]
+    output_file = filename.replace(".csv", ".docx")
     doc.save(output_file)
     logging.info("Document saved as %s", output_file)
 
