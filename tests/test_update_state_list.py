@@ -16,73 +16,6 @@ from update_state_list.update_state_list import (
     update_state_list,
 )
 
-
-class TestCreateOutputFile:
-    """Tests for create_output_file function."""
-
-    def test_create_output_file_with_data(self, tmp_path):
-        """Test creating output file with valid bird data."""
-        input_file = tmp_path / "test.csv"
-        updated_data = [
-            {
-                "comName": "American Robin",
-                "sciName": "Turdus migratorius",
-                "State Status": "Common",
-                "speciesCode": "amerob",
-                "order": "Passeriformes",
-                "familyComName": "Thrushes",
-                "taxonOrder": "100",
-                "subspecies": False,
-            }
-        ]
-
-        create_output_file(updated_data, str(input_file))
-
-        output_file = tmp_path / "test_updated.csv"
-        assert output_file.exists()
-
-        with open(output_file, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            rows = list(reader)
-            assert len(rows) == 1
-            assert rows[0]["comName"] == "American Robin"
-
-    def test_create_output_file_sorts_by_taxon_order(self, tmp_path):
-        """Test that output file is sorted by taxonOrder."""
-        input_file = tmp_path / "test.csv"
-        updated_data = [
-            {
-                "comName": "Bird B",
-                "taxonOrder": "200",
-                "sciName": "Sci B",
-                "State Status": "Rare",
-                "speciesCode": "birdb",
-                "order": "Order1",
-                "familyComName": "Family1",
-                "subspecies": False,
-            },
-            {
-                "comName": "Bird A",
-                "taxonOrder": "100",
-                "sciName": "Sci A",
-                "State Status": "Common",
-                "speciesCode": "birda",
-                "order": "Order2",
-                "familyComName": "Family2",
-                "subspecies": False,
-            },
-        ]
-
-        create_output_file(updated_data, str(input_file))
-
-        output_file = tmp_path / "test_updated.csv"
-        with open(output_file, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            rows = list(reader)
-            assert rows[0]["comName"] == "Bird A"
-            assert rows[1]["comName"] == "Bird B"
-
-
 class TestGetTaxonomyOfInterest:
     """Tests for get_taxonomy_of_interest function."""
 
@@ -467,5 +400,173 @@ class TestUpdateStateList:
         assert updated_data[0]["order"] == "Passeriformes"
         assert updated_data[0]["familyComName"] == "Thrushes"
         assert updated_data[0]["taxonOrder"] == 100
+
+class TestCreateOutputFile:
+    """Tests for create_output_file function."""
+
+    def test_create_output_file_basic(self, tmp_path, monkeypatch):
+        """Test basic output file creation with valid data."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        bird_data = [
+            {
+                "comName": "American Robin",
+                "sciName": "Turdus migratorius",
+                "State Status": "Common",
+                "speciesCode": "amerob",
+                "order": "Passeriformes",
+                "familyComName": "Thrushes",
+                "taxonOrder": 100,
+                "subspecies": False,
+            }
+        ]
+
+        create_output_file(bird_data, "input.csv")
+
+        output_file = tmp_path / "reports" / "input_updated.csv"
+        assert output_file.exists()
+
+        with open(output_file, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+
+        assert len(rows) == 1
+        assert rows[0]["comName"] == "American Robin"
+        assert rows[0]["sciName"] == "Turdus migratorius"
+
+    def test_create_output_file_sorts_by_taxon_order(self, tmp_path, monkeypatch):
+        """Test that output file sorts birds by taxonOrder."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        bird_data = [
+            {
+                "comName": "Yellow Warbler",
+                "sciName": "Setophaga petechia",
+                "State Status": "Common",
+                "taxonOrder": 200,
+            },
+            {
+                "comName": "American Robin",
+                "sciName": "Turdus migratorius",
+                "State Status": "Common",
+                "taxonOrder": 100,
+            },
+        ]
+
+        create_output_file(bird_data, "input.csv")
+
+        with open(tmp_path / "reports" / "input_updated.csv", "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+
+        assert rows[0]["comName"] == "American Robin"
+        assert rows[1]["comName"] == "Yellow Warbler"
+
+    def test_create_output_file_places_state_status_4_at_end(self, tmp_path, monkeypatch):
+        """Test that birds with State Status '(4)' are placed at the end."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        bird_data = [
+            {
+                "comName": "American Robin",
+                "State Status": "(4)",
+                "taxonOrder": 100,
+            },
+            {
+                "comName": "Yellow Warbler",
+                "State Status": "Common",
+                "taxonOrder": 200,
+            },
+        ]
+
+        create_output_file(bird_data, "input.csv")
+
+        with open(tmp_path / "reports" / "input_updated.csv", "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+
+        assert rows[0]["comName"] == "Yellow Warbler"
+        assert rows[1]["comName"] == "American Robin"
+
+    def test_create_output_file_empty_data(self, tmp_path, monkeypatch):
+        """Test creating output file with empty bird data."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        create_output_file([], "input.csv")
+
+        output_file = tmp_path / "reports" / "input_updated.csv"
+        assert output_file.exists()
+
+        with open(output_file, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        assert content == ""
+
+    def test_create_output_file_includes_all_fieldnames(self, tmp_path, monkeypatch):
+        """Test that output file includes all required fieldnames."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        bird_data = [
+            {
+                "comName": "American Robin",
+                "sciName": "Turdus migratorius",
+                "State Status": "Common",
+                "speciesCode": "amerob",
+                "order": "Passeriformes",
+                "familyComName": "Thrushes",
+                "taxonOrder": 100,
+                "subspecies": False,
+                "Sort as": "Robin",
+                "atlasUrl": "http://example.com",
+            }
+        ]
+
+        create_output_file(bird_data, "input.csv")
+
+        with open(tmp_path / "reports" / "input_updated.csv", "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            fieldnames = reader.fieldnames
+
+        expected_fields = [
+            "comName", "sciName", "State Status", "speciesCode",
+            "order", "familyComName", "taxonOrder", "subspecies",
+            "Sort as", "atlasUrl"
+        ]
+        assert fieldnames == expected_fields
+
+    def test_create_output_file_with_path_separator(self, tmp_path, monkeypatch):
+        """Test output file creation with path containing separators."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        bird_data = [
+            {"comName": "Test", "taxonOrder": 100, "State Status": "Common"}
+        ]
+
+        create_output_file(bird_data, "data/input.csv")
+
+        output_file = tmp_path / "reports" / "input_updated.csv"
+        assert output_file.exists()
+
+    @patch("update_state_list.update_state_list.logging")
+    def test_create_output_file_logs_operation(self, mock_logging, tmp_path, monkeypatch):
+        """Test that file creation is logged."""
+        monkeypatch.chdir(tmp_path)
+        tmp_path.joinpath("reports").mkdir()
+
+        bird_data = [
+            {"comName": "Test", "taxonOrder": 100, "State Status": "Common"}
+        ]
+
+        create_output_file(bird_data, "input.csv")
+
+        mock_logging.info.assert_called_once()
+        assert "input_updated.csv" in mock_logging.info.call_args[0][1]
+
 
 

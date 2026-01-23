@@ -112,7 +112,7 @@ class TestGenerateDocx:
 
         generate_docx("test.csv")
 
-        mock_doc_instance.save.assert_called_once_with("test.docx")
+        mock_doc_instance.save.assert_called_once_with("reports/test.docx")
 
     @patch('update_state_list.generate_docx.Document')
     @patch("update_state_list.generate_docx.add_hyperlink")
