@@ -15,7 +15,7 @@ from update_state_list.generate_html import (
     generate_html,
 )
 
-
+# pylint: disable=W0621
 
 @pytest.fixture
 def mock_file_pointer():

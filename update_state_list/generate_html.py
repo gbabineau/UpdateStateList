@@ -1,13 +1,12 @@
 """
-Main function for the generate_docx application
-plumages.
+Main function for the generate_html application
 """
 
 import csv
 import logging
 from datetime import date
 
-from update_state_list import parse_common_arguments
+from update_state_list import parse_common_arguments, create_links
 
 TR_START = "<tr>\n"
 TR_END = "</tr>\n"
@@ -101,11 +100,11 @@ def write_taxon(
         [
             TR_START,
             f'  <td align="center">{index_text}</font></td>\n',
-            f'  <td align="center"><a href="https://ebird.org/species/{species_code}/US-VA" target="_blank">{common_name}</a></td>\n',
+            f'  <td align="center"><a href="{create_links.ebird_species_information(species_code)}" target="_blank">{common_name}</a></td>\n',
             f'  <td align="left">&nbsp&nbsp<i>{scientific_name}</font></td>\n',
             f'  <td align="center">{state_status}</font></td>\n',
-            f'  <td align="center"><a href="http://ebird.org/ebird/map/{species_code}?neg=true&env.minX=-84.70&env.minY=36.20&env.maxX=-70.95&env.maxY=37.22&zh=true&gp=true&ev=Z&mr=1-12&bmo=1&emo=12&yr=all" target="_blank">Map</a></td>\n',
-            f'  <td align="center"><a href="http://ebird.org/ebird/GuideMe?cmd=decisionPage&speciesCodes={species_code}&getLocations=states&states=US-VA&bYear=1900&eYear=Cur&bMonth=1&eMonth=12&reportType=species&parentState=US-VA" target="_blank">Chart</a></td>\n',
+            f'  <td align="center"><a href="{create_links.ebird_map_link(species_code)}" target="_blank">Map</a></td>\n',
+            f'  <td align="center"><a href="{create_links.ebird_chart_link(species_code)}" target="_blank">Chart</a></td>\n',
             TR_END,
         ]
     )
