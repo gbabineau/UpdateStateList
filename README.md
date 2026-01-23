@@ -100,3 +100,14 @@ python -m update_state_list.generate_html --official_list_csv data/virginiaState
 #### Output of generate_html
 
 The program will create a file with the same name as the input file but with a html extension. In the example above it would be data/virginiaStateListDec2025_updated.html
+
+
+## Development
+
+Requires Python
+
+VS-Code files are included but any editor can be used
+
+Leverages GitHub for CI
+
+Requires GTK for converting xlsx to html. [Download the installer](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases).
