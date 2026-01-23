@@ -39,7 +39,7 @@ class TestEbirdMapLink:
     def test_ebird_map_link_basic(self):
         """Test creating a basic map link."""
         result = ebird_map_link("amerob")
-        assert "http://ebird.org/ebird/map/amerob" in result
+        assert "https://ebird.org/ebird/map/amerob" in result
 
     def test_ebird_map_link_contains_species_code(self):
         """Test that map link contains the species code."""
@@ -68,7 +68,7 @@ class TestEbirdChartLink:
     def test_ebird_chart_link_basic(self):
         """Test creating a basic chart link."""
         result = ebird_chart_link("amerob")
-        assert "http://ebird.org/ebird/GuideMe" in result
+        assert "https://ebird.org/ebird/GuideMe" in result
 
     def test_ebird_chart_link_contains_species_code(self):
         """Test that chart link contains the species code."""
