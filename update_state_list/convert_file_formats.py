@@ -10,4 +10,4 @@ def convert_xls_to_html(excel_file: str, html_file: str):
 
 def convert_html_to_pdf(html_file: str, pdf_file: str):
     HTML(filename=html_file).write_pdf(pdf_file)
-    print("PDF generated {pdf_file}.")
+    print(f"PDF generated {pdf_file}.")
