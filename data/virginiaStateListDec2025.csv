@@ -1,1050 +1,525 @@
-comName,State Status,Sort as,atlasUrl
-
-Black-bellied Whistling-Duck,Occasional,,
-
-West Indian Whistling-Duck,Accidental (3a),,
-
-Fulvous Whistling-Duck,Accidental,,
-
-Snow Goose,,,
-
-Snow Goose (Lesser),,,
-
-Snow Goose (Greater),,,
-
-Ross's Goose,,,
-
-Greater White-fronted Goose,,,
-
-Pink-footed Goose,Accidental,,
-
-Brant,,,
-
-Barnacle Goose,Accidental (3a),,
-
-Cackling Goose,,,
-
-Canada Goose,,,https://vabirdatlas.org/species-account/canada-goose/
-
-Mute Swan,(5),,https://vabirdatlas.org/species-account/mute-swan/
-
-Trumpeter Swan,,,https://vabirdatlas.org/species-account/trumpeter-swan/
-
-Tundra Swan,,,
-
-Wood Duck,,,https://vabirdatlas.org/species-account/wood-duck/
-
-Garganey,Accidental,,
-
-Blue-winged Teal,,,
-
-Cinnamon Teal,Accidental,,
-
-Northern Shoveler,,,
-
-Gadwall,,,https://vabirdatlas.org/species-account/gadwall/
-
-Eurasian Wigeon,Occasional,,
-
-American Wigeon,,,
-
-Mallard,,,https://vabirdatlas.org/species-account/mallard/
-
-American Black Duck,,,https://vabirdatlas.org/species-account/american-black-duck/
-
-Mottled Duck,Rare,,
-
-White-cheeked Pintail,Accidental,,
-
-Northern Pintail,,,
-
-Green-winged Teal,,,
-
-Green-winged Teal (American),,,
-
-Green-winged Teal (Eurasian),Rare,,
-
-Canvasback,,,
-
-Redhead,,,
-
-Ring-necked Duck,,,
-
-Tufted Duck,Accidental,,
-
-Greater Scaup,,,
-
-Lesser Scaup,,,
-
-King Eider,Rare,,
-
-Common Eider,Occasional,,
-
-Harlequin Duck,Occasional,,
-
-Surf Scoter,,,
-
-White-winged Scoter,,,
-
-Black Scoter,,,
-
-Long-tailed Duck,,,
-
-Bufflehead,,,
-
-Common Goldeneye,,,
-
-Barrow's Goldeneye,Accidental (2),,
-
-Hooded Merganser,,,https://vabirdatlas.org/species-account/hooded-merganser/
-
-Common Merganser,,,https://vabirdatlas.org/species-account/common-merganser/
-
-Red-breasted Merganser,,,
-
-Ruddy Duck,,,
-
-Northern Bobwhite,,,https://vabirdatlas.org/species-account/northern-bobwhite/
-
-Wild Turkey,,,https://vabirdatlas.org/species-account/wild-turkey/
-
-Ruffed Grouse,,,https://vabirdatlas.org/species-account/ruffed-grouse/
-
-Ring-necked Pheasant,(6),,
-
-American Flamingo,Accidental,,
-
-Pied-billed Grebe,,,https://vabirdatlas.org/species-account/pied-billed-grebe/
-
-Horned Grebe,,,
-
-Red-necked Grebe,,,
-
-Eared Grebe,Occasional,,
-
-Western Grebe,Rare,,
-
-Clark's Grebe,Accidental,,
-
-Common Ground Dove,Rare,,
-
-White-winged Dove,Occasional,,
-
-Mourning Dove,,,https://vabirdatlas.org/species-account/mourning-dove/
-
-White-crowned Pigeon,Accidental,,
-
-Eurasian Collared-Dove,(5),,https://vabirdatlas.org/species-account/eurasian-collared-dove/
-
-Rock Pigeon,(5),,https://vabirdatlas.org/species-account/rock-pigeon/
-
-Groove-billed Ani,Accidental,,
-
-Yellow-billed Cuckoo,,,https://vabirdatlas.org/species-account/yellow-billed-cuckoo/
-
-Black-billed Cuckoo,,,https://vabirdatlas.org/species-account/black-billed-cuckoo/
-
-Common Nighthawk,,,https://vabirdatlas.org/species-account/common-nighthawk/
-
-Chuck-will's-widow,,,https://vabirdatlas.org/species-account/chuck-wills-widow/
-
-Eastern Whip-poor-will,,,https://vabirdatlas.org/species-account/eastern-whip-poor-will/
-
-Chimney Swift,,,https://vabirdatlas.org/species-account/chimney-swift/
-
-Mexican Violetear,Accidental,,
-
-Rivoli's Hummingbird,Accidental,,
-
-Ruby-throated Hummingbird,,,https://vabirdatlas.org/species-account/ruby-throated-hummingbird/
-
-Black-chinned Hummingbird,Rare,,
-
-Anna's Hummingbird,Accidental,,
-
-Calliope Hummingbird,Accidental,,
-
-Rufous Hummingbird,Occasional,,
-
-Allen's Hummingbird,Accidental,,
-
-Violet-crowned Hummingbird,Accidental,,
-
-Buff-bellied Hummingbird,Accidental,,
-
-Limpkin,Rare,,
-
-Sandhill Crane,Occasional,,
-
-Paint-billed Crake,Accidental,,
-
-King Rail,,,https://vabirdatlas.org/species-account/king-rail/
-
-Clapper Rail,,,https://vabirdatlas.org/species-account/clapper-rail/
-
-Virginia Rail,,,https://vabirdatlas.org/species-account/virginia-rail/
-
-Sora,,,https://vabirdatlas.org/species-account/sora/
-
-Common Gallinule,,,https://vabirdatlas.org/species-account/common-gallinule/
-
-American Coot,,,https://vabirdatlas.org/species-account/american-coot/
-
-Purple Gallinule,Rare,,
-
-Yellow Rail,Rare,,
-
-Black Rail,Rare,,https://vabirdatlas.org/species-account/black-rail/
-
-Black-necked Stilt,,,https://vabirdatlas.org/species-account/black-necked-stilt/
-
-American Avocet,,,
-
-American Oystercatcher,,,https://vabirdatlas.org/species-account/american-oystercatcher/
-
-Black-bellied Plover,,,
-
-American Golden-Plover,,,
-
-Killdeer,,,https://vabirdatlas.org/species-account/killdeer/
-
-Semipalmated Plover,,,
-
-Piping Plover,,,https://vabirdatlas.org/species-account/piping-plover/
-
-Northern Lapwing,Accidental,,
-
-sand-plover sp.,Accidental,Siberian Sand-Plover,
-
-Wilson's Plover,Rare,,https://vabirdatlas.org/species-account/wilsons-plover/
-
-Mountain Plover,Accidental,,
-
-Snowy Plover,Accidental,,
-
-Upland Sandpiper,Occasional,,
-
-Hudsonian Whimbrel,,,
-
-Eurasian Whimbrel,Accidental,,
-
-Long-billed Curlew,Occasional,,
-
-Bar-tailed Godwit,Accidental,,
-
-Bar-tailed Godwit (European),Accidental,,
-
-Bar-tailed Godwit (Siberian),Accidental,,
-
-Black-tailed Godwit,Accidental,,
-
-Hudsonian Godwit,,,
-
-Marbled Godwit,,,
-
-Ruddy Turnstone,,,
-
-Red Knot,,,
-
-Ruff,Rare,,
-
-Sharp-tailed Sandpiper,Accidental,,
-
-Stilt Sandpiper,,,
-
-Curlew Sandpiper,Rare,,
-
-Red-necked Stint,Accidental (2),,
-
-Sanderling,,,
-
-Dunlin,,,
-
-Purple Sandpiper,,,
-
-Baird's Sandpiper,Occasional,,
-
-Least Sandpiper,,,
-
-White-rumped Sandpiper,,,
-
-Buff-breasted Sandpiper,Occasional,,
-
-Pectoral Sandpiper,,,
-
-Semipalmated Sandpiper,,,
-
-Western Sandpiper,,,
-
-Short-billed Dowitcher,,,
-
-Short-billed Dowitcher (griseus),,,
-
-Short-billed Dowitcher (hendersoni),,,
-
-Long-billed Dowitcher,,,
-
-Eurasian Woodcock,Accidental,,
-
-American Woodcock,,,https://vabirdatlas.org/species-account/american-woodcock/
-
-Wilson's Snipe,,,
-
-Terek Sandpiper,Accidental,,
-
-Spotted Sandpiper,,,https://vabirdatlas.org/species-account/spotted-sandpiper/
-
-Solitary Sandpiper,,,
-
-Lesser Yellowlegs,,,
-
-Willet,,,https://vabirdatlas.org/species-account/willet/
-
-Willet (Eastern),,,
-
-Willet (Western),,,
-
-Greater Yellowlegs,,,
-
-Wilson's Phalarope,Occasional,,
-
-Red-necked Phalarope,Occasional,,
-
-Red Phalarope,Pelagic,,
-
-Great Skua,Rare,,
-
-South Polar Skua,Accidental,,
-
-Pomarine Jaeger,Pelagic,,
-
-Parasitic Jaeger,,,
-
-Long-tailed Jaeger,Pelagic,,
-
-Dovekie,Pelagic,,
-
-Common Murre,Rare,,
-
-Thick-billed Murre,Rare,,
-
-Razorbill,,,
-
-Black Guillemot,Accidental (2),,
-
-Ancient Murrelet,Accidental (2),,
-
-Atlantic Puffin,Pelagic,,
-
-Brown Noddy,Accidental (2),,
-
-Sooty Tern,Rare,,
-
-Bridled Tern,Rare,,
-
-Least Tern,,,https://vabirdatlas.org/species-account/least-tern/
-
-Gull-billed Tern,,,https://vabirdatlas.org/species-account/gull-billed-tern/
-
-Caspian Tern,,,https://vabirdatlas.org/species-account/caspian-tern/
-
-Black Tern,,,
-
-White-winged Tern,Rare,,
-
-Roseate Tern,Rare,,
-
-Common Tern,,,https://vabirdatlas.org/species-account/common-tern/
-
-Arctic Tern,Rare,,
-
-Forster's Tern,,,https://vabirdatlas.org/species-account/forsters-tern/
-
-Royal Tern,,,https://vabirdatlas.org/species-account/royal-tern/
-
-Sandwich Tern,,,https://vabirdatlas.org/species-account/sandwich-tern/
-
-Elegant Tern,Accidental,,
-
-Black Skimmer,,,https://vabirdatlas.org/species-account/black-skimmer/
-
-Black-legged Kittiwake,Pelagic,,
-
-Sabine's Gull,Rare,,
-
-Bonaparte's Gull,,,
-
-Black-headed Gull,Occasional,,
-
-Little Gull,Rare,,
-
-Laughing Gull,,,https://vabirdatlas.org/species-account/laughing-gull/
-
-Franklin's Gull,Rare,,
-
-Black-tailed Gull,Accidental,,
-
-Heermann's Gull,Accidental,,
-
-Common Gull,Accidental,,
-
-Ring-billed Gull,,,
-
-Vega Gull,Accidental,,
-
-California Gull,Rare,,
-
-American Herring Gull,,,https://vabirdatlas.org/species-account/american-herring-gull/
-
-Yellow-legged Gull,Accidental,,
-
-Iceland Gull,Occasional,,
-
-Iceland Gull (Thayer's),Rare,,
-
-Iceland Gull (Kumliens's),Occasional,,
-
-Lesser Black-backed Gull,,,
-
-Glaucous Gull,Occasional,,
-
-Great Black-backed Gull,,,https://vabirdatlas.org/species-account/great-black-backed-gull/
-
-White-tailed Tropicbird,Accidental,,
-
-Red-billed Tropicbird,Accidental (2),,
-
-Red-throated Loon,,,
-
-Pacific Loon,Rare,,
-
-Common Loon,,,
-
-Atlantic Yellow-nosed Albatross,Accidental,,
-
-Black-browed Albatross,Accidental,,
-
-Wilson's Storm-Petrel,,,
-
-White-faced Storm-Petrel,Rare,,
-
-European Storm-Petrel,Accidental,,
-
-Leach's Storm-Petrel,Pelagic,,
-
-Band-rumped Storm-Petrel,Rare,,
-
-Northern Fulmar,Pelagic,,
-
-Trindade Petrel,Accidental,,
-
-Bermuda Petrel,Accidental,,
-
-Black-capped Petrel,Rare,,
-
-Desertas Petrel,Accidental (2),,
-
-Bulwer's Petrel,Accidental (2),,
-
-Cory's Shearwater,Pelagic,,
-
-Scopoli's Shearwater,Pelagic,,
-
-Sooty Shearwater,,,
-
-Great Shearwater,,,
-
-Manx Shearwater,Pelagic,,
-
-Sargasso Shearwater,Pelagic,,
-
-Wood Stork,Rare,,
-
-Magnificent Frigatebird,Rare,,
-
-Masked Booby,Accidental,,
-
-Brown Booby,Rare,,
-
-Northern Gannet,,,
-
-Anhinga,,,https://vabirdatlas.org/species-account/anhinga/
-
-Great Cormorant,,,
-
-Double-crested Cormorant,,,https://vabirdatlas.org/species-account/double-crested-cormorant/
-
-Neotropic Cormorant,Accidental,,
-
-White Ibis,,,https://vabirdatlas.org/species-account/white-ibis/
-
-Glossy Ibis,,,https://vabirdatlas.org/species-account/glossy-ibis/
-
-White-faced Ibis,Rare,,
-
-Roseate Spoonbill,Rare,,
-
-American White Pelican,,,
-
-Brown Pelican,,,https://vabirdatlas.org/species-account/brown-pelican/
-
-Least Bittern,,,https://vabirdatlas.org/species-account/least-bittern/
-
-American Bittern,,,https://vabirdatlas.org/species-account/american-bittern/
-
-Little Blue Heron,,,https://vabirdatlas.org/species-account/little-blue-heron/
-
-Tricolored Heron,,,https://vabirdatlas.org/species-account/tricolored-heron/
-
-Reddish Egret,Accidental,,
-
-Snowy Egret,,,https://vabirdatlas.org/species-account/snowy-egret/
-
-Little Egret,Accidental,,
-
-Yellow-crowned Night Heron,,,https://vabirdatlas.org/species-account/yellow-crowned-night-heron/
-
-Black-crowned Night Heron,,,https://vabirdatlas.org/species-account/black-crowned-night-heron/
-
-Green Heron,,,https://vabirdatlas.org/species-account/green-heron/
-
-Great Egret,,,https://vabirdatlas.org/species-account/great-egret/
-
-Western Cattle-Egret,,,
-
-Gray Heron,Accidental,,
-
-Great Blue Heron,,,https://vabirdatlas.org/species-account/great-blue-heron/
-
-Great Blue Heron (White form),Rare,,
-
-Black Vulture,,,https://vabirdatlas.org/species-account/black-vulture/
-
-Turkey Vulture,,,https://vabirdatlas.org/species-account/turkey-vulture/
-
-Osprey,,,https://vabirdatlas.org/species-account/osprey/
-
-White-tailed Kite,Accidental,,
-
-Swallow-tailed Kite,Occasional,,
-
-Golden Eagle,,,
-
-Sharp-shinned Hawk,,,https://vabirdatlas.org/species-account/sharp-shinned-hawk/
-
-Cooper's Hawk,,,https://vabirdatlas.org/species-account/coopers-hawk/
-
-American Goshawk,Rare,,
-
-Northern Harrier,,,https://vabirdatlas.org/species-account/northern-harrier/
-
-Western Marsh Harrier,Accidental (2),,
-
-Bald Eagle,,,https://vabirdatlas.org/species-account/bald-eagle/
-
-Mississippi Kite,,,https://vabirdatlas.org/species-account/mississippi-kite/
-
-Snail Kite,Accidental,,
-
-Red-shouldered Hawk,,,https://vabirdatlas.org/species-account/red-shouldered-hawk/
-
-Broad-winged Hawk,,,https://vabirdatlas.org/species-account/broad-winged-hawk/
-
-Swainson's Hawk,Rare,,
-
-Zone-tailed Hawk,Accidental,,
-
-Red-tailed Hawk,,,https://vabirdatlas.org/species-account/red-tailed-hawk/
-
-Red-tailed Hawk (Harlan's),Accidental,,
-
-Rough-legged Hawk,Occasional,,
-
-Ferruginous Hawk,Accidental,,
-
-American Barn Owl,,,https://vabirdatlas.org/species-account/american-barn-owl/
-
-Eastern Screech-Owl,,,https://vabirdatlas.org/species-account/eastern-screech-owl/
-
-Great Horned Owl,,,https://vabirdatlas.org/species-account/great-horned-owl/
-
-Snowy Owl,Rare,,
-
-Burrowing Owl,Accidental,,
-
-Barred Owl,,,https://vabirdatlas.org/species-account/barred-owl/
-
-Long-eared Owl,Rare,,
-
-Short-eared Owl,,,
-
-Northern Saw-whet Owl,,,https://vabirdatlas.org/species-account/northern-saw-whet-owl/
-
-Belted Kingfisher,,,https://vabirdatlas.org/species-account/belted-kingfisher/
-
-Lewis's Woodpecker,Accidental,,
-
-Red-headed Woodpecker,,,https://vabirdatlas.org/species-account/red-headed-woodpecker/
-
-Red-bellied Woodpecker,,,https://vabirdatlas.org/species-account/red-bellied-woodpecker/
-
-Yellow-bellied Sapsucker,,,https://vabirdatlas.org/species-account/yellow-bellied-sapsucker/
-
-Downy Woodpecker,,,https://vabirdatlas.org/species-account/downy-woodpecker/
-
-Red-cockaded Woodpecker,Rare,,https://vabirdatlas.org/species-account/red-cockaded-woodpecker/
-
-Hairy Woodpecker,,,https://vabirdatlas.org/species-account/hairy-woodpecker/
-
-Northern Flicker,,,https://vabirdatlas.org/species-account/northern-flicker/
-
-Pileated Woodpecker,,,https://vabirdatlas.org/species-account/pileated-woodpecker/
-
-Crested Caracara,Accidental,,
-
-American Kestrel,,,https://vabirdatlas.org/species-account/american-kestrel/
-
-Merlin,,,https://vabirdatlas.org/species-account/merlin/
-
-Merlin (Taiga),,,
-
-Merlin (Prairie),,,
-
-Gyrfalcon,Accidental,,
-
-Peregrine Falcon,,,https://vabirdatlas.org/species-account/peregrine-falcon/
-
-Prairie Falcon,Accidental,,
-
-Monk Parakeet,(6),,
-
-Ash-throated Flycatcher,Occasional,,
-
-Great Crested Flycatcher,,,https://vabirdatlas.org/species-account/great-crested-flycatcher/
-
-Tropical Kingbird,Accidental,,
-
-Couch's Kingbird,Accidental,,
-
-Western Kingbird,Occasional,,
-
-Eastern Kingbird,,,https://vabirdatlas.org/species-account/eastern-kingbird/
-
-Gray Kingbird,Rare,,
-
-Scissor-tailed Flycatcher,Rare,,
-
-Fork-tailed Flycatcher,Rare,,
-
-Olive-sided Flycatcher,,,
-
-Western Wood-Pewee,Accidental,,
-
-Eastern Wood-Pewee,,,https://vabirdatlas.org/species-account/eastern-wood-pewee/
-
-Yellow-bellied Flycatcher,,,
-
-Acadian Flycatcher,,,https://vabirdatlas.org/species-account/acadian-flycatcher/
-
-Alder Flycatcher,,,https://vabirdatlas.org/species-account/alder-flycatcher/
-
-Willow Flycatcher,,,https://vabirdatlas.org/species-account/willow-flycatcher/
-
-Least Flycatcher,,,https://vabirdatlas.org/species-account/least-flycatcher/
-
-Dusky Flycatcher,Accidental,,
-
-Western Flycatcher,Accidental,,
-
-Eastern Phoebe,,,https://vabirdatlas.org/species-account/eastern-phoebe/
-
-Say's Phoebe,Rare,,
-
-Vermilion Flycatcher,Accidental,,
-
-White-eyed Vireo,,,https://vabirdatlas.org/species-account/white-eyed-vireo/
-
-Bell's Vireo,Accidental,,
-
-Yellow-throated Vireo,,,https://vabirdatlas.org/species-account/yellow-throated-vireo/
-
-Blue-headed Vireo,,,https://vabirdatlas.org/species-account/blue-headed-vireo/
-
-Philadelphia Vireo,,,
-
-Eastern Warbling Vireo,,,https://vabirdatlas.org/species-account/eastern-warbling-vireo/
-
-Red-eyed Vireo,,,https://vabirdatlas.org/species-account/red-eyed-vireo/
-
-Black-whiskered Vireo,Accidental,,
-
-Loggerhead Shrike,,,https://vabirdatlas.org/species-account/loggerhead-shrike/
-
-Northern Shrike,Rare,,
-
-Blue Jay,,,https://vabirdatlas.org/species-account/blue-jay/
-
-Black-billed Magpie,Accidental,,
-
-American Crow,,,https://vabirdatlas.org/species-account/american-crow/
-
-Fish Crow,,,https://vabirdatlas.org/species-account/fish-crow/
-
-Common Raven,,,https://vabirdatlas.org/species-account/common-raven/
-
-Carolina Chickadee,,,https://vabirdatlas.org/species-account/carolina-chickadee/
-
-Black-capped Chickadee,,,https://vabirdatlas.org/species-account/black-capped-chickadee/
-
-Boreal Chickadee,Accidental (2),,
-
-Tufted Titmouse,,,https://vabirdatlas.org/species-account/tufted-titmouse/
-
-Horned Lark,,,https://vabirdatlas.org/species-account/horned-lark/
-
-Bank Swallow,,,https://vabirdatlas.org/species-account/bank-swallow/
-
-Tree Swallow,,,https://vabirdatlas.org/species-account/tree-swallow/
-
-Violet-green Swallow,Accidental,,
-
-Northern Rough-winged Swallow,,,https://vabirdatlas.org/species-account/northern-rough-winged-swallow/
-
-Brown-chested Martin,Accidental (2),,
-
-Purple Martin,,,https://vabirdatlas.org/species-account/purple-martin/
-
-Barn Swallow,,,https://vabirdatlas.org/species-account/barn-swallow/
-
-Cliff Swallow,,,https://vabirdatlas.org/species-account/cliff-swallow/
-
-Cave Swallow,Rare,,
-
-Ruby-crowned Kinglet,,,
-
-Golden-crowned Kinglet,,,https://vabirdatlas.org/species-account/golden-crowned-kinglet/
-
-Bohemian Waxwing,Accidental,,
-
-Cedar Waxwing,,,https://vabirdatlas.org/species-account/cedar-waxwing/
-
-Red-breasted Nuthatch,,,https://vabirdatlas.org/species-account/red-breasted-nuthatch/
-
-White-breasted Nuthatch,,,https://vabirdatlas.org/species-account/white-breasted-nuthatch/
-
-Brown-headed Nuthatch,,,https://vabirdatlas.org/species-account/brown-headed-nuthatch/
-
-Brown Creeper,,,https://vabirdatlas.org/species-account/brown-creeper/
-
-Blue-gray Gnatcatcher,,,https://vabirdatlas.org/species-account/blue-gray-gnatcatcher/
-
-Rock Wren,Accidental,,
-
-Bewick's Wren,Extirpated,,
-
-Carolina Wren,,,https://vabirdatlas.org/species-account/carolina-wren/
-
-Northern House Wren,,,https://vabirdatlas.org/species-account/northern-house-wren/
-
-Winter Wren,,,https://vabirdatlas.org/species-account/winter-wren/
-
-Sedge Wren,,,
-
-Marsh Wren,,,https://vabirdatlas.org/species-account/marsh-wren/
-
-Gray Catbird,,,https://vabirdatlas.org/species-account/gray-catbird/
-
-Brown Thrasher,,,https://vabirdatlas.org/species-account/brown-thrasher/
-
-Sage Thrasher,Accidental,,
-
-Northern Mockingbird,,,https://vabirdatlas.org/species-account/northern-mockingbird/
-
-European Starling,(5),,https://vabirdatlas.org/species-account/european-starling/
-
-Eastern Bluebird,,,https://vabirdatlas.org/species-account/eastern-bluebird/
-
-Mountain Bluebird,Accidental,,
-
-Townsend's Solitaire,Accidental,,
-
-Veery,,,https://vabirdatlas.org/species-account/veery/
-
-Gray-cheeked Thrush,,,
-
-Bicknell's Thrush,,,
-
-Swainson's Thrush,,,https://vabirdatlas.org/species-account/swainsons-thrush/
-
-Hermit Thrush,,,https://vabirdatlas.org/species-account/hermit-thrush/
-
-Wood Thrush,,,https://vabirdatlas.org/species-account/wood-thrush/
-
-American Robin,,,https://vabirdatlas.org/species-account/american-robin/
-
-Varied Thrush,Rare,,
-
-Northern Wheatear,Accidental,,
-
-House Sparrow,(5),,https://vabirdatlas.org/species-account/house-sparrow/
-
-White Wagtail,Accidental,,
-
-American Pipit,,,
-
-Sprague's Pipit,Accidental (2),,
-
-Evening Grosbeak,Rare,,
-
-Pine Grosbeak,Accidental,,
-
-Gray-crowned Rosy-Finch,Accidental,,
-
-House Finch,(5),,https://vabirdatlas.org/species-account/house-finch/
-
-Purple Finch,,,https://vabirdatlas.org/species-account/purple-finch/
-
-Redpoll,Rare,,
-
-Red Crossbill,Occasional,,https://vabirdatlas.org/species-account/red-crossbill/
-
-White-winged Crossbill,Rare,,
-
-Pine Siskin,,,https://vabirdatlas.org/species-account/pine-siskin/
-
-Lesser Goldfinch,Accidental,,
-
-American Goldfinch,,,https://vabirdatlas.org/species-account/american-goldfinch/
-
-Lapland Longspur,,,
-
-Chestnut-collared Longspur,Accidental (2),,
-
-Smith's Longspur,Accidental,,
-
-Snow Bunting,,,
-
-Bachman's Sparrow,Extirpated,,
-
-Grasshopper Sparrow,,,https://vabirdatlas.org/species-account/grasshopper-sparrow/
-
-Black-throated Sparrow,Accidental,,
-
-Lark Sparrow,Occasional,,
-
-Lark Bunting,Accidental,,
-
-Chipping Sparrow,,,https://vabirdatlas.org/species-account/chipping-sparrow/
-
-Clay-colored Sparrow,Occasional,,
-
-Field Sparrow,,,https://vabirdatlas.org/species-account/field-sparrow/
-
-Brewer's Sparrow,Accidental,,
-
-Fox Sparrow,,,
-
-Fox Sparrow (Red),,,
-
-American Tree Sparrow,Occasional,,
-
-Dark-eyed Junco,,,https://vabirdatlas.org/species-account/dark-eyed-junco/
-
-Dark-eyed Junco (Oregon),Rare,,
-
-Dark-eyed Junco (Pink-sided),Accidental,,
-
-White-crowned Sparrow,,,
-
-White-crowned Sparrow (Gambel's),Occasional,,
-
-Harris's Sparrow,Rare,,
-
-White-throated Sparrow,,,
-
-Vesper Sparrow,,,https://vabirdatlas.org/species-account/vesper-sparrow/
-
-LeConte's Sparrow,Rare,,
-
-Seaside Sparrow,,,https://vabirdatlas.org/species-account/seaside-sparrow/
-
-Nelson's Sparrow,,,
-
-Nelson's Sparrow (Nelson's),,,
-
-Nelson's Sparrow (James Bay),,,
-
-Nelson's Sparrow (Atlantic Coast),,,
-
-Saltmarsh Sparrow,,,https://vabirdatlas.org/species-account/saltmarsh-sparrow/
-
-Henslow's Sparrow,Occasional,,https://vabirdatlas.org/species-account/henslows-sparrow/
-
-Savannah Sparrow,,,https://vabirdatlas.org/species-account/savannah-sparrow/
-
-Savannah Sparrow (Ipswich),,,
-
-Song Sparrow,,,https://vabirdatlas.org/species-account/song-sparrow/
-
-Lincoln's Sparrow,,,
-
-Swamp Sparrow,,,https://vabirdatlas.org/species-account/swamp-sparrow/
-
-Green-tailed Towhee,Accidental,,
-
-Spotted Towhee,Accidental (2),,
-
-Eastern Towhee,,,https://vabirdatlas.org/species-account/eastern-towhee/
-
-Yellow-breasted Chat,,,https://vabirdatlas.org/species-account/yellow-breasted-chat/
-
-Yellow-headed Blackbird,Occasional,,
-
-Bobolink,,,https://vabirdatlas.org/species-account/bobolink/
-
-Eastern Meadowlark,,,https://vabirdatlas.org/species-account/eastern-meadowlark/
-
-Western Meadowlark,Accidental,,
-
-Orchard Oriole,,,https://vabirdatlas.org/species-account/orchard-oriole/
-
-Bullock's Oriole,Rare,,
-
-Baltimore Oriole,,,https://vabirdatlas.org/species-account/baltimore-oriole/
-
-Scott's Oriole,Accidental,,
-
-Red-winged Blackbird,,,https://vabirdatlas.org/species-account/red-winged-blackbird/
-
-Shiny Cowbird,Accidental,,
-
-Brown-headed Cowbird,,,https://vabirdatlas.org/species-account/brown-headed-cowbird/
-
-Rusty Blackbird,,,
-
-Brewer's Blackbird,Occasional,,
-
-Common Grackle,,,https://vabirdatlas.org/species-account/common-grackle/
-
-Boat-tailed Grackle,,,https://vabirdatlas.org/species-account/boat-tailed-grackle/
-
-Ovenbird,,,https://vabirdatlas.org/species-account/ovenbird/
-
-Worm-eating Warbler,,,https://vabirdatlas.org/species-account/worm-eating-warbler/
-
-Louisiana Waterthrush,,,https://vabirdatlas.org/species-account/louisiana-waterthrush/
-
-Northern Waterthrush,,,
-
-Golden-winged Warbler,,,https://vabirdatlas.org/species-account/golden-winged-warbler/
-
-Blue-winged Warbler,,,https://vabirdatlas.org/species-account/blue-winged-warbler/
-
-Black-and-white Warbler,,,https://vabirdatlas.org/species-account/black-and-white-warbler/
-
-Prothonotary Warbler,,,https://vabirdatlas.org/species-account/prothonotary-warbler/
-
-Swainson's Warbler,,,https://vabirdatlas.org/species-account/swainsons-warbler/
-
-Tennessee Warbler,,,
-
-Orange-crowned Warbler,,,
-
-Lucy's Warbler,Accidental,,
-
-Nashville Warbler,,,
-
-Virginia's Warbler,Accidental,,
-
-Connecticut Warbler,,,
-
-MacGillivray's Warbler,Accidental,,
-
-Mourning Warbler,,,https://vabirdatlas.org/species-account/mourning-warbler/
-
-Kentucky Warbler,,,https://vabirdatlas.org/species-account/kentucky-warbler/
-
-Common Yellowthroat,,,https://vabirdatlas.org/species-account/common-yellowthroat/
-
-Hooded Warbler,,,https://vabirdatlas.org/species-account/hooded-warbler/
-
-American Redstart,,,https://vabirdatlas.org/species-account/american-redstart/
-
-Kirtland's Warbler,Accidental,,
-
-Cape May Warbler,,,
-
-Cerulean Warbler,,,https://vabirdatlas.org/species-account/cerulean-warbler/
-
-Northern Parula,,,https://vabirdatlas.org/species-account/northern-parula/
-
-Magnolia Warbler,,,https://vabirdatlas.org/species-account/magnolia-warbler/
-
-Bay-breasted Warbler,,,
-
-Blackburnian Warbler,,,https://vabirdatlas.org/species-account/blackburnian-warbler/
-
-Northern Yellow Warbler,,,https://vabirdatlas.org/species-account/yellow-warbler/
-
-Chestnut-sided Warbler,,,https://vabirdatlas.org/species-account/chestnut-sided-warbler/
-
-Blackpoll Warbler,,,
-
-Black-throated Blue Warbler,,,https://vabirdatlas.org/species-account/black-throated-blue-warbler/
-
-Palm Warbler,,,
-
-Palm Warbler (Western),,,
-
-Palm Warbler (Yellow),,,
-
-Pine Warbler,,,https://vabirdatlas.org/species-account/pine-warbler/
-
-Yellow-rumped Warbler,,,https://vabirdatlas.org/species-account/yellow-rumped-warbler/
-
-Yellow-throated Warbler,,,https://vabirdatlas.org/species-account/yellow-throated-warbler/
-
-Prairie Warbler,,,https://vabirdatlas.org/species-account/prairie-warbler/
-
-Black-throated Gray Warbler,Rare,,
-
-Townsend's Warbler,Rare,,
-
-Black-throated Green Warbler,,,https://vabirdatlas.org/species-account/black-throated-green-warbler/
-
-Canada Warbler,,,https://vabirdatlas.org/species-account/canada-warbler/
-
-Wilson's Warbler,,,
-
-Summer Tanager,,,https://vabirdatlas.org/species-account/summer-tanager/
-
-Scarlet Tanager,,,https://vabirdatlas.org/species-account/scarlet-tanager/
-
-Western Tanager,Occasional,,
-
-Northern Cardinal,,,https://vabirdatlas.org/species-account/northern-cardinal/
-
-Rose-breasted Grosbeak,,,https://vabirdatlas.org/species-account/rose-breasted-grosbeak/
-
-Black-headed Grosbeak,Rare,,
-
-Blue Grosbeak,,,https://vabirdatlas.org/species-account/blue-grosbeak/
-
-Lazuli Bunting,Accidental,,
-
-Indigo Bunting,,,https://vabirdatlas.org/species-account/indigo-bunting/
-
-Painted Bunting,,,https://vabirdatlas.org/species-account/painted-bunting/
-
-Dickcissel,Rare,,https://vabirdatlas.org/species-account/dickcissel/
-
-Passenger Pigeon,(4),,
-
-Eskimo Curlew,(4),,
-
-Carolina Parakeet,(4),,
-
-Bachman's Warbler,(4),,
-
-Short-billed Gull,Accidental,,
-
+comName,State Status,Abundance,Sort as,atlasUrl
+Black-bellied Whistling-Duck,,Occasional,,
+West Indian Whistling-Duck,3a,Accidental,,
+Fulvous Whistling-Duck,,Accidental,,
+Snow Goose,,,,
+Snow Goose (Lesser),,,,
+Snow Goose (Greater),,,,
+Ross's Goose,,,,
+Greater White-fronted Goose,,,,
+Pink-footed Goose,,Accidental,,
+Brant,,,,
+Barnacle Goose,3a,Accidental,,
+Cackling Goose,,,,
+Canada Goose,,,,https://vabirdatlas.org/species-account/canada-goose/
+Mute Swan,5,,,https://vabirdatlas.org/species-account/mute-swan/
+Trumpeter Swan,,,,https://vabirdatlas.org/species-account/trumpeter-swan/
+Tundra Swan,,,,
+Wood Duck,,,,https://vabirdatlas.org/species-account/wood-duck/
+Garganey,,Accidental,,
+Blue-winged Teal,,,,
+Cinnamon Teal,,Accidental,,
+Northern Shoveler,,,,
+Gadwall,,,,https://vabirdatlas.org/species-account/gadwall/
+Eurasian Wigeon,,Occasional,,
+American Wigeon,,,,
+Mallard,,,,https://vabirdatlas.org/species-account/mallard/
+American Black Duck,,,,https://vabirdatlas.org/species-account/american-black-duck/
+Mottled Duck,,Rare,,
+White-cheeked Pintail,,Accidental,,
+Northern Pintail,,,,
+Green-winged Teal,,,,
+Green-winged Teal (American),,,,
+Green-winged Teal (Eurasian),,Rare,,
+Canvasback,,,,
+Redhead,,,,
+Ring-necked Duck,,,,
+Tufted Duck,,Accidental,,
+Greater Scaup,,,,
+Lesser Scaup,,,,
+King Eider,,Rare,,
+Common Eider,,Occasional,,
+Harlequin Duck,,Occasional,,
+Surf Scoter,,,,
+White-winged Scoter,,,,
+Black Scoter,,,,
+Long-tailed Duck,,,,
+Bufflehead,,,,
+Common Goldeneye,,,,
+Barrow's Goldeneye,2,Accidental,,
+Hooded Merganser,,,,https://vabirdatlas.org/species-account/hooded-merganser/
+Common Merganser,,,,https://vabirdatlas.org/species-account/common-merganser/
+Red-breasted Merganser,,,,
+Ruddy Duck,,,,
+Northern Bobwhite,,,,https://vabirdatlas.org/species-account/northern-bobwhite/
+Wild Turkey,,,,https://vabirdatlas.org/species-account/wild-turkey/
+Ruffed Grouse,,,,https://vabirdatlas.org/species-account/ruffed-grouse/
+Ring-necked Pheasant,6,,,
+American Flamingo,,Accidental,,
+Pied-billed Grebe,,,,https://vabirdatlas.org/species-account/pied-billed-grebe/
+Horned Grebe,,,,
+Red-necked Grebe,,,,
+Eared Grebe,,Occasional,,
+Western Grebe,,Rare,,
+Clark's Grebe,,Accidental,,
+Common Ground Dove,,Rare,,
+White-winged Dove,,Occasional,,
+Mourning Dove,,,,https://vabirdatlas.org/species-account/mourning-dove/
+White-crowned Pigeon,,Accidental,,
+Eurasian Collared-Dove,5,,,https://vabirdatlas.org/species-account/eurasian-collared-dove/
+Rock Pigeon,5,,,https://vabirdatlas.org/species-account/rock-pigeon/
+Groove-billed Ani,,Accidental,,
+Yellow-billed Cuckoo,,,,https://vabirdatlas.org/species-account/yellow-billed-cuckoo/
+Black-billed Cuckoo,,,,https://vabirdatlas.org/species-account/black-billed-cuckoo/
+Common Nighthawk,,,,https://vabirdatlas.org/species-account/common-nighthawk/
+Chuck-will's-widow,,,,https://vabirdatlas.org/species-account/chuck-wills-widow/
+Eastern Whip-poor-will,,,,https://vabirdatlas.org/species-account/eastern-whip-poor-will/
+Chimney Swift,,,,https://vabirdatlas.org/species-account/chimney-swift/
+Mexican Violetear,,Accidental,,
+Rivoli's Hummingbird,,Accidental,,
+Ruby-throated Hummingbird,,,,https://vabirdatlas.org/species-account/ruby-throated-hummingbird/
+Black-chinned Hummingbird,,Rare,,
+Anna's Hummingbird,,Accidental,,
+Calliope Hummingbird,,Accidental,,
+Rufous Hummingbird,,Occasional,,
+Allen's Hummingbird,,Accidental,,
+Violet-crowned Hummingbird,,Accidental,,
+Buff-bellied Hummingbird,,Accidental,,
+Limpkin,,Rare,,
+Sandhill Crane,,Occasional,,
+Paint-billed Crake,,Accidental,,
+King Rail,,,,https://vabirdatlas.org/species-account/king-rail/
+Clapper Rail,,,,https://vabirdatlas.org/species-account/clapper-rail/
+Virginia Rail,,,,https://vabirdatlas.org/species-account/virginia-rail/
+Sora,,,,https://vabirdatlas.org/species-account/sora/
+Common Gallinule,,,,https://vabirdatlas.org/species-account/common-gallinule/
+American Coot,,,,https://vabirdatlas.org/species-account/american-coot/
+Purple Gallinule,,Rare,,
+Yellow Rail,,Rare,,
+Black Rail,,Rare,,https://vabirdatlas.org/species-account/black-rail/
+Black-necked Stilt,,,,https://vabirdatlas.org/species-account/black-necked-stilt/
+American Avocet,,,,
+American Oystercatcher,,,,https://vabirdatlas.org/species-account/american-oystercatcher/
+Black-bellied Plover,,,,
+American Golden-Plover,,,,
+Killdeer,,,,https://vabirdatlas.org/species-account/killdeer/
+Semipalmated Plover,,,,
+Piping Plover,,,,https://vabirdatlas.org/species-account/piping-plover/
+Northern Lapwing,,Accidental,,
+sand-plover sp.,,Accidental,Siberian Sand-Plover,
+Wilson's Plover,,Rare,,https://vabirdatlas.org/species-account/wilsons-plover/
+Mountain Plover,,Accidental,,
+Snowy Plover,,Accidental,,
+Upland Sandpiper,,Occasional,,
+Hudsonian Whimbrel,,,,
+Eurasian Whimbrel,,Accidental,,
+Long-billed Curlew,,Occasional,,
+Bar-tailed Godwit,,Accidental,,
+Bar-tailed Godwit (European),,Accidental,,
+Bar-tailed Godwit (Siberian),,Accidental,,
+Black-tailed Godwit,,Accidental,,
+Hudsonian Godwit,,,,
+Marbled Godwit,,,,
+Ruddy Turnstone,,,,
+Red Knot,,,,
+Ruff,,Rare,,
+Sharp-tailed Sandpiper,,Accidental,,
+Stilt Sandpiper,,,,
+Curlew Sandpiper,,Rare,,
+Red-necked Stint,2,Accidental,,
+Sanderling,,,,
+Dunlin,,,,
+Purple Sandpiper,,,,
+Baird's Sandpiper,,Occasional,,
+Least Sandpiper,,,,
+White-rumped Sandpiper,,,,
+Buff-breasted Sandpiper,,Occasional,,
+Pectoral Sandpiper,,,,
+Semipalmated Sandpiper,,,,
+Western Sandpiper,,,,
+Short-billed Dowitcher,,,,
+Short-billed Dowitcher (griseus),,,,
+Short-billed Dowitcher (hendersoni),,,,
+Long-billed Dowitcher,,,,
+Eurasian Woodcock,,Accidental,,
+American Woodcock,,,,https://vabirdatlas.org/species-account/american-woodcock/
+Wilson's Snipe,,,,
+Terek Sandpiper,,Accidental,,
+Spotted Sandpiper,,,,https://vabirdatlas.org/species-account/spotted-sandpiper/
+Solitary Sandpiper,,,,
+Lesser Yellowlegs,,,,
+Willet,,,,https://vabirdatlas.org/species-account/willet/
+Willet (Eastern),,,,
+Willet (Western),,,,
+Greater Yellowlegs,,,,
+Wilson's Phalarope,,Occasional,,
+Red-necked Phalarope,,Occasional,,
+Red Phalarope,,Pelagic,,
+Great Skua,,Rare,,
+South Polar Skua,,Accidental,,
+Pomarine Jaeger,,Pelagic,,
+Parasitic Jaeger,,,,
+Long-tailed Jaeger,,Pelagic,,
+Dovekie,,Pelagic,,
+Common Murre,,Rare,,
+Thick-billed Murre,,Rare,,
+Razorbill,,,,
+Black Guillemot,2,Accidental,,
+Ancient Murrelet,2,Accidental,,
+Atlantic Puffin,,Pelagic,,
+Brown Noddy,2,Accidental,,
+Sooty Tern,,Rare,,
+Bridled Tern,,Rare,,
+Least Tern,,,,https://vabirdatlas.org/species-account/least-tern/
+Gull-billed Tern,,,,https://vabirdatlas.org/species-account/gull-billed-tern/
+Caspian Tern,,,,https://vabirdatlas.org/species-account/caspian-tern/
+Black Tern,,,,
+White-winged Tern,,Rare,,
+Roseate Tern,,Rare,,
+Common Tern,,,,https://vabirdatlas.org/species-account/common-tern/
+Arctic Tern,,Rare,,
+Forster's Tern,,,,https://vabirdatlas.org/species-account/forsters-tern/
+Royal Tern,,,,https://vabirdatlas.org/species-account/royal-tern/
+Sandwich Tern,,,,https://vabirdatlas.org/species-account/sandwich-tern/
+Elegant Tern,,Accidental,,
+Black Skimmer,,,,https://vabirdatlas.org/species-account/black-skimmer/
+Black-legged Kittiwake,,Pelagic,,
+Sabine's Gull,,Rare,,
+Bonaparte's Gull,,,,
+Black-headed Gull,,Occasional,,
+Little Gull,,Rare,,
+Laughing Gull,,,,https://vabirdatlas.org/species-account/laughing-gull/
+Franklin's Gull,,Rare,,
+Black-tailed Gull,,Accidental,,
+Heermann's Gull,,Accidental,,
+Common Gull,,Accidental,,
+Ring-billed Gull,,,,
+Vega Gull,,Accidental,,
+California Gull,,Rare,,
+American Herring Gull,,,,https://vabirdatlas.org/species-account/american-herring-gull/
+Yellow-legged Gull,,Accidental,,
+Iceland Gull,,Occasional,,
+Iceland Gull (Thayer's),,Rare,,
+Iceland Gull (Kumliens's),,Occasional,,
+Lesser Black-backed Gull,,,,
+Glaucous Gull,,Occasional,,
+Great Black-backed Gull,,,,https://vabirdatlas.org/species-account/great-black-backed-gull/
+White-tailed Tropicbird,,Accidental,,
+Red-billed Tropicbird,2,Accidental,,
+Red-throated Loon,,,,
+Pacific Loon,,Rare,,
+Common Loon,,,,
+Atlantic Yellow-nosed Albatross,,Accidental,,
+Black-browed Albatross,,Accidental,,
+Wilson's Storm-Petrel,,,,
+White-faced Storm-Petrel,,Rare,,
+European Storm-Petrel,,Accidental,,
+Leach's Storm-Petrel,,Pelagic,,
+Band-rumped Storm-Petrel,,Rare,,
+Northern Fulmar,,Pelagic,,
+Trindade Petrel,,Accidental,,
+Bermuda Petrel,,Accidental,,
+Black-capped Petrel,,Rare,,
+Desertas Petrel,2,Accidental,,
+Bulwer's Petrel,2,Accidental,,
+Cory's Shearwater,,Pelagic,,
+Scopoli's Shearwater,,Pelagic,,
+Sooty Shearwater,,,,
+Great Shearwater,,,,
+Manx Shearwater,,Pelagic,,
+Sargasso Shearwater,,Pelagic,,
+Wood Stork,,Rare,,
+Magnificent Frigatebird,,Rare,,
+Masked Booby,,Accidental,,
+Brown Booby,,Rare,,
+Northern Gannet,,,,
+Anhinga,,,,https://vabirdatlas.org/species-account/anhinga/
+Great Cormorant,,,,
+Double-crested Cormorant,,,,https://vabirdatlas.org/species-account/double-crested-cormorant/
+Neotropic Cormorant,,Accidental,,
+White Ibis,,,,https://vabirdatlas.org/species-account/white-ibis/
+Glossy Ibis,,,,https://vabirdatlas.org/species-account/glossy-ibis/
+White-faced Ibis,,Rare,,
+Roseate Spoonbill,,Rare,,
+American White Pelican,,,,
+Brown Pelican,,,,https://vabirdatlas.org/species-account/brown-pelican/
+Least Bittern,,,,https://vabirdatlas.org/species-account/least-bittern/
+American Bittern,,,,https://vabirdatlas.org/species-account/american-bittern/
+Little Blue Heron,,,,https://vabirdatlas.org/species-account/little-blue-heron/
+Tricolored Heron,,,,https://vabirdatlas.org/species-account/tricolored-heron/
+Reddish Egret,,Accidental,,
+Snowy Egret,,,,https://vabirdatlas.org/species-account/snowy-egret/
+Little Egret,,Accidental,,
+Yellow-crowned Night Heron,,,,https://vabirdatlas.org/species-account/yellow-crowned-night-heron/
+Black-crowned Night Heron,,,,https://vabirdatlas.org/species-account/black-crowned-night-heron/
+Green Heron,,,,https://vabirdatlas.org/species-account/green-heron/
+Great Egret,,,,https://vabirdatlas.org/species-account/great-egret/
+Western Cattle-Egret,,,,
+Gray Heron,,Accidental,,
+Great Blue Heron,,,,https://vabirdatlas.org/species-account/great-blue-heron/
+Great Blue Heron (White form),,Rare,,
+Black Vulture,,,,https://vabirdatlas.org/species-account/black-vulture/
+Turkey Vulture,,,,https://vabirdatlas.org/species-account/turkey-vulture/
+Osprey,,,,https://vabirdatlas.org/species-account/osprey/
+White-tailed Kite,,Accidental,,
+Swallow-tailed Kite,,Occasional,,
+Golden Eagle,,,,
+Sharp-shinned Hawk,,,,https://vabirdatlas.org/species-account/sharp-shinned-hawk/
+Cooper's Hawk,,,,https://vabirdatlas.org/species-account/coopers-hawk/
+American Goshawk,,Rare,,
+Northern Harrier,,,,https://vabirdatlas.org/species-account/northern-harrier/
+Western Marsh Harrier,2,Accidental,,
+Bald Eagle,,,,https://vabirdatlas.org/species-account/bald-eagle/
+Mississippi Kite,,,,https://vabirdatlas.org/species-account/mississippi-kite/
+Snail Kite,,Accidental,,
+Red-shouldered Hawk,,,,https://vabirdatlas.org/species-account/red-shouldered-hawk/
+Broad-winged Hawk,,,,https://vabirdatlas.org/species-account/broad-winged-hawk/
+Swainson's Hawk,,Rare,,
+Zone-tailed Hawk,,Accidental,,
+Red-tailed Hawk,,,,https://vabirdatlas.org/species-account/red-tailed-hawk/
+Red-tailed Hawk (Harlan's),,Accidental,,
+Rough-legged Hawk,,Occasional,,
+Ferruginous Hawk,,Accidental,,
+American Barn Owl,,,,https://vabirdatlas.org/species-account/american-barn-owl/
+Eastern Screech-Owl,,,,https://vabirdatlas.org/species-account/eastern-screech-owl/
+Great Horned Owl,,,,https://vabirdatlas.org/species-account/great-horned-owl/
+Snowy Owl,,Rare,,
+Burrowing Owl,,Accidental,,
+Barred Owl,,,,https://vabirdatlas.org/species-account/barred-owl/
+Long-eared Owl,,Rare,,
+Short-eared Owl,,,,
+Northern Saw-whet Owl,,,,https://vabirdatlas.org/species-account/northern-saw-whet-owl/
+Belted Kingfisher,,,,https://vabirdatlas.org/species-account/belted-kingfisher/
+Lewis's Woodpecker,,Accidental,,
+Red-headed Woodpecker,,,,https://vabirdatlas.org/species-account/red-headed-woodpecker/
+Red-bellied Woodpecker,,,,https://vabirdatlas.org/species-account/red-bellied-woodpecker/
+Yellow-bellied Sapsucker,,,,https://vabirdatlas.org/species-account/yellow-bellied-sapsucker/
+Downy Woodpecker,,,,https://vabirdatlas.org/species-account/downy-woodpecker/
+Red-cockaded Woodpecker,,Rare,,https://vabirdatlas.org/species-account/red-cockaded-woodpecker/
+Hairy Woodpecker,,,,https://vabirdatlas.org/species-account/hairy-woodpecker/
+Northern Flicker,,,,https://vabirdatlas.org/species-account/northern-flicker/
+Pileated Woodpecker,,,,https://vabirdatlas.org/species-account/pileated-woodpecker/
+Crested Caracara,,Accidental,,
+American Kestrel,,,,https://vabirdatlas.org/species-account/american-kestrel/
+Merlin,,,,https://vabirdatlas.org/species-account/merlin/
+Merlin (Taiga),,,,
+Merlin (Prairie),,,,
+Gyrfalcon,,Accidental,,
+Peregrine Falcon,,,,https://vabirdatlas.org/species-account/peregrine-falcon/
+Prairie Falcon,,Accidental,,
+Monk Parakeet,6,,,
+Ash-throated Flycatcher,,Occasional,,
+Great Crested Flycatcher,,,,https://vabirdatlas.org/species-account/great-crested-flycatcher/
+Tropical Kingbird,,Accidental,,
+Couch's Kingbird,,Accidental,,
+Western Kingbird,,Occasional,,
+Eastern Kingbird,,,,https://vabirdatlas.org/species-account/eastern-kingbird/
+Gray Kingbird,,Rare,,
+Scissor-tailed Flycatcher,,Rare,,
+Fork-tailed Flycatcher,,Rare,,
+Olive-sided Flycatcher,,,,
+Western Wood-Pewee,,Accidental,,
+Eastern Wood-Pewee,,,,https://vabirdatlas.org/species-account/eastern-wood-pewee/
+Yellow-bellied Flycatcher,,,,
+Acadian Flycatcher,,,,https://vabirdatlas.org/species-account/acadian-flycatcher/
+Alder Flycatcher,,,,https://vabirdatlas.org/species-account/alder-flycatcher/
+Willow Flycatcher,,,,https://vabirdatlas.org/species-account/willow-flycatcher/
+Least Flycatcher,,,,https://vabirdatlas.org/species-account/least-flycatcher/
+Dusky Flycatcher,,Accidental,,
+Western Flycatcher,,Accidental,,
+Eastern Phoebe,,,,https://vabirdatlas.org/species-account/eastern-phoebe/
+Say's Phoebe,,Rare,,
+Vermilion Flycatcher,,Accidental,,
+White-eyed Vireo,,,,https://vabirdatlas.org/species-account/white-eyed-vireo/
+Bell's Vireo,,Accidental,,
+Yellow-throated Vireo,,,,https://vabirdatlas.org/species-account/yellow-throated-vireo/
+Blue-headed Vireo,,,,https://vabirdatlas.org/species-account/blue-headed-vireo/
+Philadelphia Vireo,,,,
+Eastern Warbling Vireo,,,,https://vabirdatlas.org/species-account/eastern-warbling-vireo/
+Red-eyed Vireo,,,,https://vabirdatlas.org/species-account/red-eyed-vireo/
+Black-whiskered Vireo,,Accidental,,
+Loggerhead Shrike,,,,https://vabirdatlas.org/species-account/loggerhead-shrike/
+Northern Shrike,,Rare,,
+Blue Jay,,,,https://vabirdatlas.org/species-account/blue-jay/
+Black-billed Magpie,,Accidental,,
+American Crow,,,,https://vabirdatlas.org/species-account/american-crow/
+Fish Crow,,,,https://vabirdatlas.org/species-account/fish-crow/
+Common Raven,,,,https://vabirdatlas.org/species-account/common-raven/
+Carolina Chickadee,,,,https://vabirdatlas.org/species-account/carolina-chickadee/
+Black-capped Chickadee,,,,https://vabirdatlas.org/species-account/black-capped-chickadee/
+Boreal Chickadee,2,Accidental,,
+Tufted Titmouse,,,,https://vabirdatlas.org/species-account/tufted-titmouse/
+Horned Lark,,,,https://vabirdatlas.org/species-account/horned-lark/
+Bank Swallow,,,,https://vabirdatlas.org/species-account/bank-swallow/
+Tree Swallow,,,,https://vabirdatlas.org/species-account/tree-swallow/
+Violet-green Swallow,,Accidental,,
+Northern Rough-winged Swallow,,,,https://vabirdatlas.org/species-account/northern-rough-winged-swallow/
+Brown-chested Martin,2,Accidental,,
+Purple Martin,,,,https://vabirdatlas.org/species-account/purple-martin/
+Barn Swallow,,,,https://vabirdatlas.org/species-account/barn-swallow/
+Cliff Swallow,,,,https://vabirdatlas.org/species-account/cliff-swallow/
+Cave Swallow,,Rare,,
+Ruby-crowned Kinglet,,,,
+Golden-crowned Kinglet,,,,https://vabirdatlas.org/species-account/golden-crowned-kinglet/
+Bohemian Waxwing,,Accidental,,
+Cedar Waxwing,,,,https://vabirdatlas.org/species-account/cedar-waxwing/
+Red-breasted Nuthatch,,,,https://vabirdatlas.org/species-account/red-breasted-nuthatch/
+White-breasted Nuthatch,,,,https://vabirdatlas.org/species-account/white-breasted-nuthatch/
+Brown-headed Nuthatch,,,,https://vabirdatlas.org/species-account/brown-headed-nuthatch/
+Brown Creeper,,,,https://vabirdatlas.org/species-account/brown-creeper/
+Blue-gray Gnatcatcher,,,,https://vabirdatlas.org/species-account/blue-gray-gnatcatcher/
+Rock Wren,,Accidental,,
+Bewick's Wren,,Extirpated,,
+Carolina Wren,,,,https://vabirdatlas.org/species-account/carolina-wren/
+Northern House Wren,,,,https://vabirdatlas.org/species-account/northern-house-wren/
+Winter Wren,,,,https://vabirdatlas.org/species-account/winter-wren/
+Sedge Wren,,,,
+Marsh Wren,,,,https://vabirdatlas.org/species-account/marsh-wren/
+Gray Catbird,,,,https://vabirdatlas.org/species-account/gray-catbird/
+Brown Thrasher,,,,https://vabirdatlas.org/species-account/brown-thrasher/
+Sage Thrasher,,Accidental,,
+Northern Mockingbird,,,,https://vabirdatlas.org/species-account/northern-mockingbird/
+European Starling,5,,,https://vabirdatlas.org/species-account/european-starling/
+Eastern Bluebird,,,,https://vabirdatlas.org/species-account/eastern-bluebird/
+Mountain Bluebird,,Accidental,,
+Townsend's Solitaire,,Accidental,,
+Veery,,,,https://vabirdatlas.org/species-account/veery/
+Gray-cheeked Thrush,,,,
+Bicknell's Thrush,,,,
+Swainson's Thrush,,,,https://vabirdatlas.org/species-account/swainsons-thrush/
+Hermit Thrush,,,,https://vabirdatlas.org/species-account/hermit-thrush/
+Wood Thrush,,,,https://vabirdatlas.org/species-account/wood-thrush/
+American Robin,,,,https://vabirdatlas.org/species-account/american-robin/
+Varied Thrush,,Rare,,
+Northern Wheatear,,Accidental,,
+House Sparrow,5,,,https://vabirdatlas.org/species-account/house-sparrow/
+White Wagtail,,Accidental,,
+American Pipit,,,,
+Sprague's Pipit,2,Accidental,,
+Evening Grosbeak,,Rare,,
+Pine Grosbeak,,Accidental,,
+Gray-crowned Rosy-Finch,,Accidental,,
+House Finch,5,,,https://vabirdatlas.org/species-account/house-finch/
+Purple Finch,,,,https://vabirdatlas.org/species-account/purple-finch/
+Redpoll,,Rare,,
+Red Crossbill,,Occasional,,https://vabirdatlas.org/species-account/red-crossbill/
+White-winged Crossbill,,Rare,,
+Pine Siskin,,,,https://vabirdatlas.org/species-account/pine-siskin/
+Lesser Goldfinch,,Accidental,,
+American Goldfinch,,,,https://vabirdatlas.org/species-account/american-goldfinch/
+Lapland Longspur,,,,
+Chestnut-collared Longspur,2,Accidental,,
+Smith's Longspur,,Accidental,,
+Snow Bunting,,,,
+Bachman's Sparrow,,Extirpated,,
+Grasshopper Sparrow,,,,https://vabirdatlas.org/species-account/grasshopper-sparrow/
+Black-throated Sparrow,,Accidental,,
+Lark Sparrow,,Occasional,,
+Lark Bunting,,Accidental,,
+Chipping Sparrow,,,,https://vabirdatlas.org/species-account/chipping-sparrow/
+Clay-colored Sparrow,,Occasional,,
+Field Sparrow,,,,https://vabirdatlas.org/species-account/field-sparrow/
+Brewer's Sparrow,,Accidental,,
+Fox Sparrow,,,,
+Fox Sparrow (Red),,,,
+American Tree Sparrow,,Occasional,,
+Dark-eyed Junco,,,,https://vabirdatlas.org/species-account/dark-eyed-junco/
+Dark-eyed Junco (Oregon),,Rare,,
+Dark-eyed Junco (Pink-sided),,Accidental,,
+White-crowned Sparrow,,,,
+White-crowned Sparrow (Gambel's),,Occasional,,
+Harris's Sparrow,,Rare,,
+White-throated Sparrow,,,,
+Vesper Sparrow,,,,https://vabirdatlas.org/species-account/vesper-sparrow/
+LeConte's Sparrow,,Rare,,
+Seaside Sparrow,,,,https://vabirdatlas.org/species-account/seaside-sparrow/
+Nelson's Sparrow,,,,
+Nelson's Sparrow (Nelson's),,,,
+Nelson's Sparrow (James Bay),,,,
+Nelson's Sparrow (Atlantic Coast),,,,
+Saltmarsh Sparrow,,,,https://vabirdatlas.org/species-account/saltmarsh-sparrow/
+Henslow's Sparrow,,Occasional,,https://vabirdatlas.org/species-account/henslows-sparrow/
+Savannah Sparrow,,,,https://vabirdatlas.org/species-account/savannah-sparrow/
+Savannah Sparrow (Ipswich),,,,
+Song Sparrow,,,,https://vabirdatlas.org/species-account/song-sparrow/
+Lincoln's Sparrow,,,,
+Swamp Sparrow,,,,https://vabirdatlas.org/species-account/swamp-sparrow/
+Green-tailed Towhee,,Accidental,,
+Spotted Towhee,2,Accidental,,
+Eastern Towhee,,,,https://vabirdatlas.org/species-account/eastern-towhee/
+Yellow-breasted Chat,,,,https://vabirdatlas.org/species-account/yellow-breasted-chat/
+Yellow-headed Blackbird,,Occasional,,
+Bobolink,,,,https://vabirdatlas.org/species-account/bobolink/
+Eastern Meadowlark,,,,https://vabirdatlas.org/species-account/eastern-meadowlark/
+Western Meadowlark,,Accidental,,
+Orchard Oriole,,,,https://vabirdatlas.org/species-account/orchard-oriole/
+Bullock's Oriole,,Rare,,
+Baltimore Oriole,,,,https://vabirdatlas.org/species-account/baltimore-oriole/
+Scott's Oriole,,Accidental,,
+Red-winged Blackbird,,,,https://vabirdatlas.org/species-account/red-winged-blackbird/
+Shiny Cowbird,,Accidental,,
+Brown-headed Cowbird,,,,https://vabirdatlas.org/species-account/brown-headed-cowbird/
+Rusty Blackbird,,,,
+Brewer's Blackbird,,Occasional,,
+Common Grackle,,,,https://vabirdatlas.org/species-account/common-grackle/
+Boat-tailed Grackle,,,,https://vabirdatlas.org/species-account/boat-tailed-grackle/
+Ovenbird,,,,https://vabirdatlas.org/species-account/ovenbird/
+Worm-eating Warbler,,,,https://vabirdatlas.org/species-account/worm-eating-warbler/
+Louisiana Waterthrush,,,,https://vabirdatlas.org/species-account/louisiana-waterthrush/
+Northern Waterthrush,,,,
+Golden-winged Warbler,,,,https://vabirdatlas.org/species-account/golden-winged-warbler/
+Blue-winged Warbler,,,,https://vabirdatlas.org/species-account/blue-winged-warbler/
+Black-and-white Warbler,,,,https://vabirdatlas.org/species-account/black-and-white-warbler/
+Prothonotary Warbler,,,,https://vabirdatlas.org/species-account/prothonotary-warbler/
+Swainson's Warbler,,,,https://vabirdatlas.org/species-account/swainsons-warbler/
+Tennessee Warbler,,,,
+Orange-crowned Warbler,,,,
+Lucy's Warbler,,Accidental,,
+Nashville Warbler,,,,
+Virginia's Warbler,,Accidental,,
+Connecticut Warbler,,,,
+MacGillivray's Warbler,,Accidental,,
+Mourning Warbler,,,,https://vabirdatlas.org/species-account/mourning-warbler/
+Kentucky Warbler,,,,https://vabirdatlas.org/species-account/kentucky-warbler/
+Common Yellowthroat,,,,https://vabirdatlas.org/species-account/common-yellowthroat/
+Hooded Warbler,,,,https://vabirdatlas.org/species-account/hooded-warbler/
+American Redstart,,,,https://vabirdatlas.org/species-account/american-redstart/
+Kirtland's Warbler,,Accidental,,
+Cape May Warbler,,,,
+Cerulean Warbler,,,,https://vabirdatlas.org/species-account/cerulean-warbler/
+Northern Parula,,,,https://vabirdatlas.org/species-account/northern-parula/
+Magnolia Warbler,,,,https://vabirdatlas.org/species-account/magnolia-warbler/
+Bay-breasted Warbler,,,,
+Blackburnian Warbler,,,,https://vabirdatlas.org/species-account/blackburnian-warbler/
+Northern Yellow Warbler,,,,https://vabirdatlas.org/species-account/yellow-warbler/
+Chestnut-sided Warbler,,,,https://vabirdatlas.org/species-account/chestnut-sided-warbler/
+Blackpoll Warbler,,,,
+Black-throated Blue Warbler,,,,https://vabirdatlas.org/species-account/black-throated-blue-warbler/
+Palm Warbler,,,,
+Palm Warbler (Western),,,,
+Palm Warbler (Yellow),,,,
+Pine Warbler,,,,https://vabirdatlas.org/species-account/pine-warbler/
+Yellow-rumped Warbler,,,,https://vabirdatlas.org/species-account/yellow-rumped-warbler/
+Yellow-throated Warbler,,,,https://vabirdatlas.org/species-account/yellow-throated-warbler/
+Prairie Warbler,,,,https://vabirdatlas.org/species-account/prairie-warbler/
+Black-throated Gray Warbler,,Rare,,
+Townsend's Warbler,,Rare,,
+Black-throated Green Warbler,,,,https://vabirdatlas.org/species-account/black-throated-green-warbler/
+Canada Warbler,,,,https://vabirdatlas.org/species-account/canada-warbler/
+Wilson's Warbler,,,,
+Summer Tanager,,,,https://vabirdatlas.org/species-account/summer-tanager/
+Scarlet Tanager,,,,https://vabirdatlas.org/species-account/scarlet-tanager/
+Western Tanager,,Occasional,,
+Northern Cardinal,,,,https://vabirdatlas.org/species-account/northern-cardinal/
+Rose-breasted Grosbeak,,,,https://vabirdatlas.org/species-account/rose-breasted-grosbeak/
+Black-headed Grosbeak,,Rare,,
+Blue Grosbeak,,,,https://vabirdatlas.org/species-account/blue-grosbeak/
+Lazuli Bunting,,Accidental,,
+Indigo Bunting,,,,https://vabirdatlas.org/species-account/indigo-bunting/
+Painted Bunting,,,,https://vabirdatlas.org/species-account/painted-bunting/
+Dickcissel,,Rare,,https://vabirdatlas.org/species-account/dickcissel/
+Passenger Pigeon,4,,,
+Eskimo Curlew,4,,,
+Carolina Parakeet,4,,,
+Bachman's Warbler,4,,,
+Short-billed Gull,,Accidental,,
