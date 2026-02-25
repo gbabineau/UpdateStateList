@@ -159,6 +159,7 @@ class TestGenerateXlsx:
                     "speciesCode",
                     "subspecies",
                     STATE_STATUS,
+                    "Abundance",
                     "atlasUrl"
                 ],
             )
@@ -171,7 +172,8 @@ class TestGenerateXlsx:
                     "sciName": "Corvus brachyrhynchos",
                     "speciesCode": "amecro",
                     "subspecies": "False",
-                    STATE_STATUS: "(1)",
+                    STATE_STATUS: "1",
+                    "Abundance" : "Occasional",
                     "atlasUrl": "https://some_url",
                 }
             )
@@ -183,7 +185,8 @@ class TestGenerateXlsx:
                     "sciName": "Corvus brachyrhynchos",
                     "speciesCode": "amecro",
                     "subspecies": "False",
-                    STATE_STATUS: "(1)",
+                    STATE_STATUS: "1",
+                    "Abundance": "Occasional",
                     "atlasUrl": "",
                 }
             )
@@ -216,6 +219,7 @@ class TestGenerateXlsx:
                     "speciesCode",
                     "subspecies",
                     STATE_STATUS,
+                    "Abundance",
                     "atlasUrl",
                 ],
             )
@@ -230,7 +234,8 @@ class TestGenerateXlsx:
                         "speciesCode": f"code{i}",
                         "subspecies": "False",
                         STATE_STATUS: "(1)",
-                        "atlasUrl": "https://some_url"
+                        "Abundance": "Occasional",
+                        "atlasUrl": "https://some_url",
                     }
                 )
             temp_path = f.name
@@ -258,6 +263,7 @@ class TestGenerateXlsx:
                     "speciesCode",
                     "subspecies",
                     STATE_STATUS,
+                    "Abundance",
                     "atlasUrl",
                 ],
             )
@@ -270,7 +276,8 @@ class TestGenerateXlsx:
                     "sciName": "Corvus current",
                     "speciesCode": "curcur",
                     "subspecies": "False",
-                    STATE_STATUS: "(1)",
+                    STATE_STATUS: "1",
+                    "Abundance": "Occasional",
                     "atlasUrl": "https://some_url",
                 }
             )
@@ -282,7 +289,8 @@ class TestGenerateXlsx:
                     "sciName": "Corvus historical",
                     "speciesCode": "hishis",
                     "subspecies": "False",
-                    STATE_STATUS: "(4)",
+                    STATE_STATUS: "4",
+                    "Abundance": "",
                     "atlasUrl": "",
                 }
             )
