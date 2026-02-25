@@ -71,7 +71,8 @@ class TestWriteTaxon:
             "1",
             "American Crow",
             "Corvus brachyrhynchos",
-            "(1)",
+            "1",
+            "",
             "https://some_url",
         )
 
@@ -90,7 +91,8 @@ class TestWriteTaxon:
             "1.1",
             "American Crow",
             "Corvus brachyrhynchos",
-            "(1)",
+            "1",
+            "",
             "https://some_url",
         )
 
@@ -108,26 +110,18 @@ class TestWriteTaxon:
             "2",
             "American Crow",
             "Corvus brachyrhynchos",
-            "Permanent Resident (1)",
+            "1",
+            "Accidental",
             "https://some_url",
         )
 
-        mock_worksheet.write.assert_any_call(4, headers.index("Category"), "1")
-
-    def test_write_taxon_category_no_parentheses(self, mock_worksheet):
-        """Test category defaults to '1' when no parentheses in state status."""
-        write_taxon(
-            mock_worksheet,
-            5,
-            "amecro",
-            "3",
-            "American Crow",
-            "Corvus brachyrhynchos",
-            "No parentheses status",
-            "https://some_url",
+        mock_worksheet.write.assert_any_call(
+            4, headers.index("State Status"), "1"
+        )
+        mock_worksheet.write.assert_any_call(
+            4, headers.index("Abundance"), "Accidental"
         )
 
-        mock_worksheet.write.assert_any_call(5, headers.index("Category"), "1")
 
     def test_write_taxon_urls_created(self, mock_worksheet):
         """Test that URL links are created."""
@@ -138,7 +132,8 @@ class TestWriteTaxon:
             "4",
             "American Crow",
             "Corvus brachyrhynchos",
-            "(1)",
+            "2",
+            "",
             "https://some_url",
         )
 

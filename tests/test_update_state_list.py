@@ -472,7 +472,7 @@ class TestCreateOutputFile:
         bird_data = [
             {
                 "comName": "American Robin",
-                "State Status": "(4)",
+                "State Status": "4",
                 "taxonOrder": 100,
             },
             {
@@ -515,7 +515,8 @@ class TestCreateOutputFile:
             {
                 "comName": "American Robin",
                 "sciName": "Turdus migratorius",
-                "State Status": "Common",
+                "State Status": "1",
+                "Abundance": "",
                 "speciesCode": "amerob",
                 "order": "Passeriformes",
                 "familyComName": "Thrushes",
@@ -533,7 +534,7 @@ class TestCreateOutputFile:
             fieldnames = reader.fieldnames
 
         expected_fields = [
-            "comName", "sciName", "State Status", "speciesCode",
+            "comName", "sciName", "State Status", "Abundance", "speciesCode",
             "order", "familyComName", "taxonOrder", "subspecies",
             "Sort as", "atlasUrl"
         ]
@@ -545,7 +546,7 @@ class TestCreateOutputFile:
         tmp_path.joinpath("reports").mkdir()
 
         bird_data = [
-            {"comName": "Test", "taxonOrder": 100, "State Status": "Common"}
+            {"comName": "Test", "taxonOrder": 100, "State Status": "3a"}
         ]
 
         create_output_file(bird_data, "data/input.csv")
@@ -560,7 +561,7 @@ class TestCreateOutputFile:
         tmp_path.joinpath("reports").mkdir()
 
         bird_data = [
-            {"comName": "Test", "taxonOrder": 100, "State Status": "Common"}
+            {"comName": "Test", "taxonOrder": 100, "State Status": "4"}
         ]
 
         create_output_file(bird_data, "input.csv")

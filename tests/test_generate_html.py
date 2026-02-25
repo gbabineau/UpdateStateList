@@ -79,13 +79,14 @@ class TestWriteTaxon:
             "1",
             "American Robin",
             "Turdus migratorius",
-            "Resident",
+            "1",
+            "Occasional",
             "https://some_url"
         )
         output = mock_file_pointer.getvalue()
         assert "American Robin" in output
         assert "Turdus migratorius" in output
-        assert "Resident" in output
+        assert "Occasional" in output
         assert "amerob" in output
         assert "<tr>" in output
         assert "some_url" in output
@@ -98,7 +99,8 @@ class TestWriteTaxon:
             "1",
             "American Robin",
             "Turdus migratorius",
-            "Resident",
+            "1",
+            "",
             "https://some_url",
         )
         output = mock_file_pointer.getvalue()
@@ -114,12 +116,13 @@ class TestWriteTaxon:
             "",
             "American Robin",
             "Turdus migratorius",
-            "Resident",
+            "3a",
+            "Accidental",
             "https://some_url",
         )
         output = mock_file_pointer.getvalue()
         assert '<td align="center">' in output
-        assert 'Resident' in output
+        assert '(3a)' in output
 
 
 class TestGenerateHtml:
@@ -128,7 +131,7 @@ class TestGenerateHtml:
     def test_generate_html_creates_file(self, tmp_path):
         """Test that generate_html creates an output HTML file."""
         csv_file = tmp_path / "test_birds.csv"
-        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,subspecies\nPasseriformes,Corvidae,amerob,American Robin,Turdus migratorius,,False"
+        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,Abundance,subspecies\nPasseriformes,Corvidae,amerob,American Robin,Turdus migratorius,1,,False"
         csv_file.write_text(csv_content)
 
         with patch("update_state_list.generate_html.logging.info"):
@@ -140,7 +143,7 @@ class TestGenerateHtml:
     def test_generate_html_contains_table(self, tmp_path):
         """Test that generated HTML contains a table."""
         csv_file = tmp_path / "test_birds.csv"
-        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,subspecies\nPasseriformes,Corvidae,amerob,American Robin,Turdus migratorius,,False"
+        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,Abundance,subspecies\nPasseriformes,Corvidae,amerob,American Robin,Turdus migratorius,1,,False"
         csv_file.write_text(csv_content)
 
         with patch("update_state_list.generate_html.logging.info"):
@@ -154,7 +157,7 @@ class TestGenerateHtml:
     def test_generate_html_historical_species_section(self, tmp_path):
         """Test that historical species section is added."""
         csv_file = tmp_path / "test_birds.csv"
-        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,subspecies\nPasseriformes,Corvidae,amerob,American Robin,Turdus migratorius,(4),False"
+        csv_content = "order,familyComName,speciesCode,comName,sciName,State Status,Abundance,subspecies\nPasseriformes,Corvidae,amerob,American Robin,Turdus migratorius,4,,False"
         csv_file.write_text(csv_content)
 
         with patch("update_state_list.generate_html.logging.info"):

@@ -9,7 +9,8 @@ from docx.oxml import CT_Hyperlink
 from update_state_list.generate_docx import (add_hyperlink,
                                              generate_docx,
                                              main,
-                                             _add_category_row)
+                                             _add_category_row,
+                                             generate_state_status_text)
 
 
 class TestAddHyperlink:
@@ -200,3 +201,36 @@ class TestAddCategoryRow:
         # Test with family color
         _add_category_row(table, "Family: Test", "ADD8E6")
         assert len(table.rows) == 3
+class TestGenerateStateStatusText:
+    """Tests for generate_state_status_text function."""
+
+    def test_status_1_returns_abundance(self):
+        """Test that status '1' is converted to empty string and returns abundance."""
+        result = generate_state_status_text("1", "Common")
+        assert result == "Common"
+
+    def test_empty_status_returns_abundance(self):
+        """Test that empty status returns only abundance."""
+        result = generate_state_status_text("", "Rare")
+        assert result == "Rare"
+
+    def test_empty_abundance_returns_status_in_parentheses(self):
+        """Test that empty abundance returns status in parentheses."""
+        result = generate_state_status_text("Endangered", "")
+        assert result == "(Endangered)"
+
+    def test_both_status_and_abundance_returns_combined(self):
+        """Test that both status and abundance returns combined format."""
+        result = generate_state_status_text("Threatened", "Uncommon")
+        assert result == "Uncommon (Threatened)"
+
+    def test_both_empty_returns_empty(self):
+        """Test that both empty status and abundance returns empty string."""
+        result = generate_state_status_text("", "")
+        assert result == ""
+
+    def test_status_1_with_empty_abundance(self):
+        """Test that status '1' with empty abundance returns empty string."""
+        result = generate_state_status_text("1", "")
+        assert result == ""
+
