@@ -36,10 +36,10 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
             and logs the operation.
     """
     # Sort updated_bird_data by taxonOrder
-    # Sort by taxonOrder, but place birds with State Status "(4)" at the end
+    # Sort by taxonOrder, but place birds with State Status "4" at the end
     updated_bird_data.sort(
         key=lambda x: (
-            x.get("State Status") == "(4)",
+            x.get("State Status") == "4",
             float(x.get("taxonOrder", 0)),
         )
     )
@@ -52,13 +52,14 @@ def create_output_file(updated_bird_data, common_names_file) -> None:
                 "comName",
                 "sciName",
                 "State Status",
+                "Abundance",
                 "speciesCode",
                 "order",
                 "familyComName",
                 "taxonOrder",
                 "subspecies",
                 "Sort as",
-                "atlasUrl"
+                "atlasUrl",
             ]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()

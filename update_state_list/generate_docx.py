@@ -58,6 +58,18 @@ def add_hyperlink(paragraph, url, text, color, underline):
 
     return hyperlink
 
+def generate_state_status_text(status, abundance) -> str:
+    """ Generate a string used historically as a combinded status/abundance """
+    if status == "1":
+        status = ""
+    if status=="":
+        result = abundance
+    elif abundance == "":
+        result = f"({status})"
+    else:
+        result = f"{abundance} ({status})"
+    return result
+
 
 def generate_docx(official_list_file) -> None:
     """
@@ -107,7 +119,7 @@ def generate_docx(official_list_file) -> None:
     for bird in birds_data:
         # Add historical species row if first occurrence
         state_status = bird.get("State Status", "")
-        if state_status == "(4)" and not historically_occurring_section:
+        if state_status == "4" and not historically_occurring_section:
             _add_category_row(
                 table,
                 "Species Believed to Have Occurred Historically",
@@ -145,7 +157,7 @@ def generate_docx(official_list_file) -> None:
         )
 
         row_cells[2].text = bird.get("sciName", "")
-        row_cells[3].text = state_status
+        row_cells[3].text = generate_state_status_text(state_status, bird.get("Abundance",""))
 
         add_hyperlink(
             row_cells[4].paragraphs[0],

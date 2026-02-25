@@ -18,8 +18,8 @@ headers = [
     "Species",
     "Species Information Link",
     "Scientific Name",
-    "Category",
     STATE_STATUS,
+    "Abundance",
     "Map Link",
     "Chart Link",
     ATLAS_LINK,
@@ -51,6 +51,7 @@ def write_taxon(
     common_name,
     scientific_name,
     state_status,
+    state_abundance,
     atlas_url,
 ):
     """
@@ -69,6 +70,7 @@ def write_taxon(
         common_name (str): The common name of the species.
         scientific_name (str): The scientific name in italic format.
         state_status (str): The presence status of the species in the state.
+        state_abundance (str): Abundance category.
         atlas_utl (str): Link to atlas information
 
     Returns:
@@ -94,12 +96,8 @@ def write_taxon(
         string=common_name,
     )
     worksheet.write(row, headers.index("Scientific Name"), scientific_name)
-    if '(' in state_status:
-        category = state_status.split("(")[1].split(")")[0]
-    else:
-        category = "1"
-    worksheet.write(row, headers.index("Category"), category)
     worksheet.write(row, headers.index(STATE_STATUS), state_status)
+    worksheet.write(row, headers.index("Abundance"), state_abundance)
     worksheet.write_url(
         row,
         headers.index("Map Link"),
@@ -156,7 +154,7 @@ def generate_xlsx(official_list_file) -> None:
     for bird in birds_data:
         # Add historical species row if first occurrence
         state_status = bird.get(STATE_STATUS, "")
-        if state_status == "(4)" and not historically_occurring_section:
+        if state_status == "4" and not historically_occurring_section:
             write_taxonomy_header(
                 worksheet, row, "", "Historically Occurring", light_gray_format
             )
@@ -202,6 +200,7 @@ def generate_xlsx(official_list_file) -> None:
             bird.get("comName"),
             bird.get("sciName", ""),
             state_status,
+            bird.get("Abundance", ""),
             bird.get("atlasUrl"),
         )
         row = row + 1

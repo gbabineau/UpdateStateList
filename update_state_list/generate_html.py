@@ -6,10 +6,15 @@ import csv
 import logging
 from datetime import date
 
-from update_state_list import parse_common_arguments, create_links
+from update_state_list import (
+    parse_common_arguments,
+    create_links,
+    generate_docx,
+)
 
 TR_START = "<tr>\n"
 TR_END = "</tr>\n"
+
 
 def write_taxonomy_header(file_pointer, color, font_size, level, text):
     """
@@ -70,6 +75,7 @@ def write_taxon(
     common_name,
     scientific_name,
     state_status,
+    state_abundance,
     atlas_url,
 ):
     """
@@ -87,6 +93,7 @@ def write_taxon(
         common_name (str): The common name of the species.
         scientific_name (str): The scientific name in italic format.
         state_status (str): The presence status of the species in the state.
+        state_abundance(str): Abundance in the state
         atlas_utl (str): Link to breeding bird atlas
 
     Returns:
@@ -105,7 +112,7 @@ def write_taxon(
                 f'  <td align="center">{index_text}</font></td>\n',
                 f'  <td align="center"><a href="{create_links.ebird_species_information(species_code)}" target="_blank">{common_name}</a></td>\n',
                 f'  <td align="left">&nbsp&nbsp<i>{scientific_name}</font></td>\n',
-                f'  <td align="center">{state_status}</font></td>\n',
+                f'  <td align="center">{generate_docx.generate_state_status_text(state_status, state_abundance)}</font></td>\n',
                 f'  <td align="center"><a href="{create_links.ebird_map_link(species_code)}" target="_blank">Map</a></td>\n',
                 f'  <td align="center"><a href="{create_links.ebird_chart_link(species_code)}" target="_blank">Chart</a></td>\n',
                 f'  <td align="center"><a href="{atlas_url}" target="_blank">Breeding Data</a></td>\n',
@@ -119,7 +126,7 @@ def write_taxon(
                 f'  <td align="center">{index_text}</font></td>\n',
                 f'  <td align="center"><a href="{create_links.ebird_species_information(species_code)}" target="_blank">{common_name}</a></td>\n',
                 f'  <td align="left">&nbsp&nbsp<i>{scientific_name}</font></td>\n',
-                f'  <td align="center">{state_status}</font></td>\n',
+                f'  <td align="center">{generate_docx.generate_state_status_text(state_status, state_abundance)}</font></td>\n',
                 f'  <td align="center"><a href="{create_links.ebird_map_link(species_code)}" target="_blank">Map</a></td>\n',
                 f'  <td align="center"><a href="{create_links.ebird_chart_link(species_code)}" target="_blank">Chart</a></td>\n',
                 '  <td align="left">&nbsp&nbsp<i>NA</font></td>\n',
@@ -166,7 +173,8 @@ def generate_html(official_list_file) -> None:
         for bird in birds_data:
             # Add historical species row if first occurrence
             state_status = bird.get("State Status", "")
-            if state_status == "(4)" and not historically_occurring_section:
+            state_abundance = bird.get("Abundance", "")
+            if state_status == "4" and not historically_occurring_section:
                 html_file.writelines(
                     '<tr><td align="center" colspan=7><font size="5">Species Believed to Have Occurred Historically</font></td></tr>\n'
                 )
@@ -201,6 +209,7 @@ def generate_html(official_list_file) -> None:
                 bird.get("comName"),
                 bird.get("sciName", ""),
                 state_status,
+                state_abundance,
                 bird.get("atlasUrl"),
             )
         html_file.writelines("</table>\n")
@@ -229,7 +238,7 @@ def main():
     """
     arg_parser = parse_common_arguments.parse_common_arguments(
         program_name="generate-html",
-        description="Generate a HTML document from an official list CSV."
+        description="Generate a HTML document from an official list CSV.",
     )
     arg_parser.add_argument(
         "--official_list_csv",
