@@ -66,30 +66,6 @@ class TestAddHyperlink:
 class TestGenerateDocx:
     """Tests for generate_docx function."""
 
-    @pytest.fixture
-    def sample_csv_data(self):
-        """Sample CSV data for testing."""
-        return [
-            {
-                "speciesCode": "gockin",
-                "order": "Passeriformes",
-                "familyComName": "Kinglets",
-                "comName": "Golden-crowned Kinglet",
-                "sciName": "Regulus satrapa",
-                "State Status": "Common",
-                "subspecies": "False"
-            },
-            {
-                "speciesCode": "rucroc",
-                "order": "Passeriformes",
-                "familyComName": "Kinglets",
-                "comName": "Ruby-crowned Kinglet",
-                "sciName": "Corthylio calendula",
-                "State Status": "Common",
-                "subspecies": "False"
-            }
-        ]
-
     @patch('update_state_list.generate_docx.Document')
     @patch("update_state_list.generate_docx.add_hyperlink")
     @patch('builtins.open', new_callable=mock_open)
@@ -103,7 +79,8 @@ class TestGenerateDocx:
                 "familyComName": "Kinglets",
                 "comName": "Golden-crowned Kinglet",
                 "sciName": "Regulus satrapa",
-                "State Status": "Common",
+                "State Status": "1",
+                "Abundance" : "Occasional",
                 "subspecies": "False"
             }
         ]
@@ -128,7 +105,8 @@ class TestGenerateDocx:
                 "familyComName": "Kinglets",
                 "comName": "Golden-crowned Kinglet",
                 "sciName": "Regulus satrapa",
-                "State Status": "Common",
+                "State Status": "1",
+                "Abundance": "Occasional",
                 "subspecies": "True"
             }
         ]
@@ -140,6 +118,31 @@ class TestGenerateDocx:
 
         mock_doc_instance.save.assert_called_once()
 
+    @patch("update_state_list.generate_docx.Document")
+    @patch("update_state_list.generate_docx.add_hyperlink")
+    @patch("builtins.open", new_callable=mock_open)
+    @patch("csv.DictReader")
+    def test_generate_docx_handles_historical(self, mock_csv, _, __, mock_doc):
+        """Test that subspecies are handled correctly."""
+        mock_csv.return_value = [
+            {
+                "speciesCode": "gockin",
+                "order": "Passeriformes",
+                "familyComName": "Kinglets",
+                "comName": "Golden-crowned Kinglet",
+                "sciName": "Regulus satrapa",
+                "State Status": "4",
+                "Abundance": "",
+                "subspecies": "True",
+            }
+        ]
+
+        mock_doc_instance = MagicMock()
+        mock_doc.return_value = mock_doc_instance
+
+        generate_docx("test.csv")
+
+        mock_doc_instance.save.assert_called_once()
 
 class TestMain:
     """Tests for main function."""
