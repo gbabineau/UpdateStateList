@@ -7,7 +7,7 @@ import logging
 import os
 from datetime import datetime, timezone
 
-from ebird.api import get_taxonomy
+from ebird.api.requests import get_taxonomy
 
 def ebird_taxonomy(ebird_api_key) -> list:
     """
@@ -24,7 +24,7 @@ def ebird_taxonomy(ebird_api_key) -> list:
     if directory and not os.path.exists(directory):
         os.makedirs(directory)
     if not os.path.isfile(cache_file):
-        taxonomy = get_taxonomy(ebird_api_key)
+        taxonomy = get_taxonomy(token=ebird_api_key)
         with open(cache_file, encoding="utf-8", mode="wt") as f:
             json.dump(taxonomy, indent=4, fp=f)
         cached_at = datetime.now(timezone.utc).isoformat()
