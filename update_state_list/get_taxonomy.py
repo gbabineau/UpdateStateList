@@ -3,9 +3,9 @@
 This module provides functionality to retrieve and cache the eBird taxonomy using the eBird API.
 """
 import json
-
-
+import logging
 import os
+from datetime import datetime, timezone
 
 from ebird.api import get_taxonomy
 
@@ -27,7 +27,11 @@ def ebird_taxonomy(ebird_api_key) -> list:
         taxonomy = get_taxonomy(ebird_api_key)
         with open(cache_file, encoding="utf-8", mode="wt") as f:
             json.dump(taxonomy, indent=4, fp=f)
+        cached_at = datetime.now(timezone.utc).isoformat()
+        logging.info("Taxonomy cached on %s", cached_at)
     else:
         with open(cache_file, encoding="utf-8", mode="rt") as f:
             taxonomy = json.load(f)
+        cached_at = datetime.fromtimestamp(os.path.getmtime(cache_file), tz=timezone.utc).isoformat()
+        logging.info("Taxonomy loaded from cache cached on %s", cached_at)
     return taxonomy
