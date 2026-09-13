@@ -93,7 +93,7 @@
             "args": [
                 "--verbose",
                 "--official_list_csv",
-                "data/virginiaStateListDec2025_updated.csv"
+                "reports/virginiaStateListDec2025_updated.csv"
             ],
             "env" :{"WEASY_PRINT_DLL_DIRECTORIES" : "C:/msys64/mingw64/bin"}
         },
