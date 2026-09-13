@@ -9,15 +9,15 @@ license = "MIT"
 python = "^3.12"
 python-docx = "^1.2.0"
 requests = "^2.31.0"
-ebird-api = "^3.0.6"
+ebird-api = ">=3.0.6,<5.0.0"
 xlsxwriter = "^3.2.9"
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^6.1.0"
+flake8 = ">=6.1,<8.0"
 coverage = "^7.3.1"
 pytest = "^9.0.1"
-pytest-cov = "^4.1.0"
-pre-commit = "^3.8.0"
+pytest-cov = ">=4.1,<8.0"
+pre-commit = ">=3.8,<5.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -36,8 +36,8 @@ show_missing = true
 output = "coverage.xml"
 
 [tool.poetry.group.lint.dependencies]
-ruff = "^0.11.6"
-mypy = "^1.11.2"
+ruff = ">=0.11.6,<0.17.0"
+mypy = ">=1.11.2,<3.0.0"
 
 [tool.ruff]
 line-length = 80
