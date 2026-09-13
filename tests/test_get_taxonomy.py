@@ -18,6 +18,9 @@ class TestGetTaxonomy(TestCase):
                 "update_state_list.get_taxonomy.os.path.isfile"
             ) as mock_isfile,
             mock.patch(
+                "update_state_list.get_taxonomy.os.path.getmtime"
+            ) as mock_getmtime,
+            mock.patch(
                 "builtins.open",
                 mock.mock_open(read_data=json.dumps(test_json)),
             ) as mock_file,
@@ -26,6 +29,7 @@ class TestGetTaxonomy(TestCase):
             ) as mock_get_taxonomy,
         ):
             mock_isfile.return_value = True
+            mock_getmtime.return_value = 0
             mock_get_taxonomy.return_value = test_json
             taxonomy = update_state_list.get_taxonomy.ebird_taxonomy("key")
             mock_file.assert_called_with(

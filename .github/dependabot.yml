@@ -1,0 +1,20 @@
+version: 2
+updates:
+  # 1. Monitor GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+  # 2. Monitor Poetry Dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    # Optional: Groups updates together into a single PR to prevent notification noise
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
